@@ -1,5 +1,5 @@
-async function fetchAITutorResponse(apiKey, questionData, userChoiceText) {
-    const prompt = `You are a CompTIA CySA+ tutor. Use the provided factual explanation to help the student understand why they were wrong. Do not introduce conflicting facts. Be concise.
+async function fetchAITutorResponse(apiKey, examName, questionData, userChoiceText) {
+    const prompt = `You are a ${examName} tutor. Use the provided factual explanation to help the student understand why they were wrong. Do not introduce conflicting facts. Be concise.
 
 Question: ${questionData.question}
 Correct Answer: ${questionData.options[questionData.answer]}
@@ -17,7 +17,7 @@ Explain why the student's choice is incorrect based on the official explanation.
             },
             body: JSON.stringify({
                 "model": "google/gemini-2.5-flash",
-                "messages": [
+                "messages":[
                     {"role": "user", "content": prompt}
                 ]
             })
@@ -31,8 +31,8 @@ Explain why the student's choice is incorrect based on the official explanation.
     }
 }
 
-async function fetchAIHint(apiKey, questionData) {
-    const prompt = `You are an expert CompTIA CySA+ tutor. The student needs a hint.
+async function fetchAIHint(apiKey, examName, questionData) {
+    const prompt = `You are an expert ${examName} tutor. The student needs a hint.
 Question: ${questionData.question}
 Correct Answer: ${questionData.options[questionData.answer]}
 
@@ -47,7 +47,7 @@ Provide a 1-2 sentence hint that guides their thinking toward the underlying con
             },
             body: JSON.stringify({
                 "model": "google/gemini-2.5-flash",
-                "messages": [
+                "messages":[
                     {"role": "user", "content": prompt}
                 ]
             })

@@ -35,6 +35,7 @@ const UI = {
 };
 
 let state = {
+    exam: 'cysa',
     questions:[],
     currentIndex: 0,
     apiKey: '',
@@ -48,11 +49,9 @@ let state = {
     isRetest: false
 };
 
-const STORAGE_KEYS = {
-    session: 'cysa_session',
-    incorrect: 'cysa_incorrect_ids',
-    apiKey: 'openRouterKey'
-};
+function getStorageKey(type) {
+    return `${state.exam}_${type}`;
+}
 
 function hashQuestion(q) {
     let hash = 0;
@@ -74,13 +73,15 @@ function parseMarkdown(text) {
 }
 
 function init() {
-    const savedKey = localStorage.getItem(STORAGE_KEYS.apiKey);
+    state.exam = UI.examSelect.value;
+
+    const savedKey = localStorage.getItem('openRouterKey');
     if (savedKey) {
         UI.apiKeyInput.value = savedKey;
         state.apiKey = savedKey;
     }
 
-    const savedMode = localStorage.getItem('cysa_mode');
+    const savedMode = localStorage.getItem('study_mode');
     if (savedMode === 'definitions') {
         state.mode = 'definitions';
         UI.modeStandard.classList.remove('active');
@@ -102,6 +103,12 @@ function init() {
 
     UI.modeStandard.addEventListener('click', () => setMode('standard'));
     UI.modeDefinitions.addEventListener('click', () => setMode('definitions'));
+
+    UI.examSelect.addEventListener('change', (e) => {
+        state.exam = e.target.value;
+        updateRetestButton();
+        restoreSession();
+    });
 
     document.addEventListener('keydown', handleGlobalKeydown);
 
@@ -129,7 +136,7 @@ function setMode(mode) {
         resetApp();
     }
     state.mode = mode;
-    localStorage.setItem('cysa_mode', mode);
+    localStorage.setItem('study_mode', mode);
     UI.modeStandard.classList.toggle('active', mode === 'standard');
     UI.modeDefinitions.classList.toggle('active', mode === 'definitions');
 }
@@ -147,20 +154,20 @@ function updateRetestButton() {
 
 function getIncorrectIds() {
     try {
-        return JSON.parse(localStorage.getItem(STORAGE_KEYS.incorrect)) ||[];
+        return JSON.parse(localStorage.getItem(getStorageKey('incorrect'))) ||[];
     } catch {
         return[];
     }
 }
 
 function saveIncorrectIds(ids) {
-    localStorage.setItem(STORAGE_KEYS.incorrect, JSON.stringify(ids));
+    localStorage.setItem(getStorageKey('incorrect'), JSON.stringify(ids));
     updateRetestButton();
 }
 
 function saveSession() {
     const session = {
-        exam: UI.examSelect.value,
+        exam: state.exam,
         mode: state.mode,
         isRetest: state.isRetest,
         currentIndex: state.currentIndex,
@@ -172,19 +179,19 @@ function saveSession() {
         aiResponses: state.aiResponses,
         timestamp: Date.now()
     };
-    localStorage.setItem(STORAGE_KEYS.session, JSON.stringify(session));
+    localStorage.setItem(getStorageKey('session'), JSON.stringify(session));
 }
 
 function restoreSession() {
     try {
-        const raw = localStorage.getItem(STORAGE_KEYS.session);
+        const raw = localStorage.getItem(getStorageKey('session'));
         if (!raw) return;
         const session = JSON.parse(raw);
-        if (session.exam !== 'cysa') return;
-
-        const confirmed = confirm('Resume your previous CySA+ session?');
+        
+        const examName = UI.examSelect.options[UI.examSelect.selectedIndex].text;
+        const confirmed = confirm(`Resume your previous ${examName} session?`);
         if (!confirmed) {
-            localStorage.removeItem(STORAGE_KEYS.session);
+            localStorage.removeItem(getStorageKey('session'));
             return;
         }
 
@@ -204,7 +211,7 @@ function restoreSession() {
             updateScoreboard();
         });
     } catch {
-        localStorage.removeItem(STORAGE_KEYS.session);
+        localStorage.removeItem(getStorageKey('session'));
     }
 }
 
@@ -227,7 +234,7 @@ function resetApp(e) {
     state.isRetest = false;
     updateScoreboard();
     UI.historyList.innerHTML = '';
-    localStorage.removeItem(STORAGE_KEYS.session);
+    localStorage.removeItem(getStorageKey('session'));
     updateRetestButton();
 }
 
@@ -242,12 +249,12 @@ function shuffleArray(array) {
 async function startStudyMode(isRetest = false, restoreIds = null) {
     const key = UI.apiKeyInput.value.trim();
     if (key) {
-        localStorage.setItem(STORAGE_KEYS.apiKey, key);
+        localStorage.setItem('openRouterKey', key);
         state.apiKey = key;
     }
 
-    const selectedExam = UI.examSelect.value;
-    const filename = selectedExam === 'cysa' ? 'cysa/cysa.json' : `${selectedExam}.json`;
+    state.exam = UI.examSelect.value;
+    const filename = state.exam === 'cysa' ? 'cysa/cysa.json' : `${state.exam}.json`;
 
     try {
         const res = await fetch(filename);
@@ -261,7 +268,7 @@ async function startStudyMode(isRetest = false, restoreIds = null) {
 
         let questions;
 
-        if (selectedExam === 'cysa' && rawData.standard && rawData.definitions) {
+        if (rawData.standard && rawData.definitions) {
             questions = state.mode === 'definitions' ? rawData.definitions : rawData.standard;
         } else {
             questions = rawData.questions || rawData;
@@ -316,7 +323,7 @@ async function startStudyMode(isRetest = false, restoreIds = null) {
         saveSession();
         loadQuestion();
     } catch (err) {
-        alert(`Could not load valid dataset for ${selectedExam}. Please verify the files.`);
+        alert(`Could not load valid dataset for ${UI.examSelect.options[UI.examSelect.selectedIndex].text}. Please verify the files.`);
     }
 }
 
@@ -479,8 +486,9 @@ async function handleAITutor() {
 
     const q = state.questions[state.currentIndex];
     const userChoiceText = q.options[state.selectedAnswer];
+    const examName = UI.examSelect.options[UI.examSelect.selectedIndex].text;
 
-    const response = await fetchAITutorResponse(state.apiKey, q, userChoiceText);
+    const response = await fetchAITutorResponse(state.apiKey, examName, q, userChoiceText);
     
     state.aiResponses[state.currentIndex] = response;
     saveSession();
@@ -497,7 +505,9 @@ async function handleHint() {
     UI.hintText.innerHTML = "Fetching hint...";
 
     const q = state.questions[state.currentIndex];
-    const response = await fetchAIHint(state.apiKey, q);
+    const examName = UI.examSelect.options[UI.examSelect.selectedIndex].text;
+    
+    const response = await fetchAIHint(state.apiKey, examName, q);
 
     state.hints[state.currentIndex] = response;
     saveSession();
@@ -527,7 +537,7 @@ function showSummary() {
         UI.summaryRetestBtn.classList.add('hidden-view');
     }
 
-    localStorage.removeItem(STORAGE_KEYS.session);
+    localStorage.removeItem(getStorageKey('session'));
 }
 
 function nextQuestion() {
