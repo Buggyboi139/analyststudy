@@ -1,71 +1,374 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Study Arena</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <nav>
-        <div class="logo-container">
-            <span class="logo-text">Study Arena</span>
-        </div>
-        <button id="theme-toggle" class="nav-link neutral">Toggle Theme</button>
-    </nav>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-    <main class="container">
-        <section id="config-section" class="control-panel active-view">
-            <h1>Configuration</h1>
-            <p class="subtitle">Set up your study environment</p>
-            
-            <div class="input-group">
-                <label for="exam-select">Select Exam</label>
-                <select id="exam-select" class="glass-input">
-                    <option value="cysa">CySA+</option>
-                    <option value="secplus">Security+</option>
-                    <option value="casp">CASP+</option>
-                </select>
-            </div>
+:root {
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(56, 189, 248, 0.3);
+    --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #10b981 50%, #34d399 100%);
+    --gradient-text: linear-gradient(to right, #34d399, #38bdf8);
+    --bg-color: #05070a;
+    --panel-bg: rgba(15, 23, 42, 0.6);
+    --success: #10b981;
+    --error: #fb7185;
+}
 
-            <div class="input-group">
-                <label for="api-key">OpenRouter API Key (BYOK)</label>
-                <div class="input-row">
-                    <input type="password" id="api-key" class="glass-input" placeholder="sk-or-v1-...">
-                    <button id="save-key-btn" class="secondary-btn">Save</button>
-                </div>
-            </div>
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    -webkit-tap-highlight-color: transparent; 
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
-            <button id="start-btn" class="primary-btn">Start Study Mode</button>
-        </section>
+body {
+    color: var(--text-main);
+    background-color: var(--bg-color);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        <section id="quiz-section" class="control-panel hidden-view">
-            <div class="category-selector">
-                <span class="category-title-label">Question <span id="current-q-num">1</span> of <span id="total-q-num"></span></span>
-            </div>
-            
-            <h2 id="question-text"></h2>
-            
-            <div id="options-container"></div>
-            
-            <div class="controls">
-                <button id="prev-btn" class="secondary-btn" disabled>Previous</button>
-                <button id="next-btn" class="secondary-btn">Next</button>
-            </div>
+nav { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    padding: 20px;
+    background: var(--panel-bg); 
+    border-bottom: 1px solid var(--border-glass); 
+}
 
-            <div id="feedback-card" class="hidden-view">
-                <h3 id="feedback-verdict"></h3>
-                <p id="feedback-definition"></p>
-                <button id="ai-tutor-btn" class="secondary-btn">Explain with AI Tutor</button>
-                
-                <div id="ai-response-container" class="hidden-view">
-                    <p id="ai-response-text"></p>
-                </div>
-            </div>
-        </section>
-    </main>
+.logo-container a {
+    text-decoration: none;
+}
 
-    <script src="api.js"></script>
-    <script src="app.js"></script>
-</body>
-</html>
+.logo-text { 
+    font-size: 1.4rem; 
+    font-weight: 800; 
+    background: var(--gradient-text); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+
+.container { 
+    width: 100%; 
+    max-width: 1200px; 
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 20px;
+}
+
+.hidden-view { 
+    display: none !important; 
+}
+
+.active-view { 
+    display: block; 
+}
+
+.control-panel { 
+    background: var(--panel-bg);
+    padding: 30px 20px; 
+    border-radius: 24px; 
+    border: 1px solid var(--border-glass); 
+    width: 100%;
+}
+
+#config-section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#quiz-container.active-view {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+#quiz-section {
+    flex: 1;
+}
+
+#history-sidebar {
+    width: 300px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 120px);
+    position: sticky;
+    top: 20px;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.score {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.score.correct { color: var(--success); }
+.score.incorrect { color: var(--error); }
+
+#history-sidebar h3 {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#history-list {
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.history-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
+    padding: 12px;
+    border-radius: 10px;
+    color: var(--text-main);
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.history-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.history-item.active {
+    border-color: var(--border-highlight);
+    background: rgba(56, 189, 248, 0.1);
+}
+
+h1 { 
+    font-size: 2.2rem; 
+    font-weight: 800; 
+    margin-bottom: 0.5rem; 
+    text-align: center; 
+}
+
+.subtitle { 
+    color: var(--text-muted); 
+    font-size: 1rem; 
+    margin-bottom: 2rem; 
+    text-align: center; 
+}
+
+.input-group { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-group label { 
+    font-size: 0.8rem; 
+    color: var(--text-muted); 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.glass-input { 
+    background: transparent; 
+    border: 1px solid var(--border-highlight); 
+    color: var(--text-main); 
+    padding: 14px 15px; 
+    border-radius: 10px; 
+    outline: none; 
+    width: 100%; 
+    font-size: 16px;
+}
+
+.glass-input:focus { 
+    border-color: #38bdf8; 
+}
+
+select option {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+.primary-btn { 
+    background: var(--gradient-primary); 
+    color: #0f172a; 
+    border: none; 
+    padding: 16px; 
+    font-size: 1.1rem; 
+    font-weight: 800; 
+    border-radius: 40px; 
+    cursor: pointer; 
+    width: 100%; 
+    margin-top: 10px; 
+}
+
+.secondary-btn { 
+    background: transparent; 
+    color: var(--text-main); 
+    border: 1px solid var(--border-glass); 
+    padding: 12px 20px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    font-weight: 600; 
+}
+
+.secondary-btn:disabled { 
+    opacity: 0.5; 
+    cursor: not-allowed; 
+}
+
+.category-selector { 
+    margin-bottom: 20px; 
+    text-align: center; 
+}
+
+.category-title-label { 
+    color: var(--text-muted); 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px; 
+}
+
+#question-text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.option-btn { 
+    background: rgba(30, 41, 59, 0.3); 
+    color: var(--text-main); 
+    border: 1px solid var(--border-glass); 
+    padding: 16px; 
+    border-radius: 12px; 
+    margin-bottom: 12px; 
+    width: 100%; 
+    text-align: left; 
+    cursor: pointer; 
+    font-size: 1rem; 
+}
+
+.option-btn.correct { 
+    background: rgba(16, 185, 129, 0.15); 
+    border-color: var(--success); 
+}
+
+.option-btn.incorrect { 
+    background: rgba(251, 113, 133, 0.15); 
+    border-color: var(--error); 
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#hint-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(56, 189, 248, 0.1);
+    border-left: 4px solid #38bdf8;
+    border-radius: 8px;
+}
+
+#hint-text {
+    color: #f8fafc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+#feedback-card { 
+    background: rgba(0, 0, 0, 0.2); 
+    border: 1px solid var(--border-glass); 
+    border-left: 4px solid var(--border-highlight); 
+    padding: 20px; 
+    border-radius: 12px; 
+    margin-top: 25px; 
+}
+
+#feedback-verdict {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+#feedback-definition {
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+#ai-tutor-btn {
+    width: 100%;
+    border-radius: 40px;
+}
+
+#ai-response-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    border: 1px solid var(--border-glass);
+}
+
+#ai-response-text {
+    color: #38bdf8;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+    #quiz-container.active-view {
+        flex-direction: column;
+    }
+    #history-sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        position: static;
+    }
+}
+
+@media (max-width: 480px) {
+    .input-row {
+        flex-direction: column;
+    }
+    .controls {
+        flex-wrap: wrap;
+    }
+    #hint-btn {
+        width: 100%;
+        order: 3;
+        margin-top: 10px;
+    }
+}
