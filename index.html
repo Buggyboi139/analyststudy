@@ -7,48 +7,62 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Security Study Arena</h1>
-        <button id="theme-toggle">Toggle Dark Mode</button>
-    </header>
+    <nav>
+        <div class="logo-container">
+            <span class="logo-text">Study Arena</span>
+        </div>
+        <button id="theme-toggle" class="nav-link neutral">Toggle Theme</button>
+    </nav>
 
-    <main id="app-container">
-        <section id="config-section">
-            <h2>Configuration</h2>
+    <main class="container">
+        <section id="config-section" class="control-panel active-view">
+            <h1>Configuration</h1>
+            <p class="subtitle">Set up your study environment</p>
+            
             <div class="input-group">
-                <label for="exam-select">Select Exam:</label>
-                <select id="exam-select">
+                <label for="exam-select">Select Exam</label>
+                <select id="exam-select" class="glass-input">
                     <option value="cysa">CySA+</option>
                     <option value="secplus">Security+</option>
                     <option value="casp">CASP+</option>
                 </select>
             </div>
+
             <div class="input-group">
-                <label for="api-key">OpenRouter API Key (BYOK):</label>
-                <input type="password" id="api-key" placeholder="sk-or-v1-...">
-                <button id="save-key-btn">Save Key</button>
+                <label for="api-key">OpenRouter API Key (BYOK)</label>
+                <div class="input-row">
+                    <input type="password" id="api-key" class="glass-input" placeholder="sk-or-v1-...">
+                    <button id="save-key-btn" class="secondary-btn">Save</button>
+                </div>
             </div>
+
             <button id="start-btn" class="primary-btn">Start Study Mode</button>
         </section>
 
-        <section id="quiz-section" class="hidden">
-            <div id="progress-bar">Question <span id="current-q-num">1</span> of <span id="total-q-num"></span></div>
+        <section id="quiz-section" class="control-panel hidden-view">
+            <div class="category-selector">
+                <span class="category-title-label">Question <span id="current-q-num">1</span> of <span id="total-q-num"></span></span>
+            </div>
+            
             <h2 id="question-text"></h2>
+            
             <div id="options-container"></div>
+            
             <div class="controls">
-                <button id="prev-btn" disabled>Previous</button>
-                <button id="next-btn">Next</button>
+                <button id="prev-btn" class="secondary-btn" disabled>Previous</button>
+                <button id="next-btn" class="secondary-btn">Next</button>
+            </div>
+
+            <div id="feedback-card" class="hidden-view">
+                <h3 id="feedback-verdict"></h3>
+                <p id="feedback-definition"></p>
+                <button id="ai-tutor-btn" class="secondary-btn">Explain with AI Tutor</button>
+                
+                <div id="ai-response-container" class="hidden-view">
+                    <p id="ai-response-text"></p>
+                </div>
             </div>
         </section>
-
-        <div id="feedback-card" class="hidden">
-            <h3 id="feedback-verdict"></h3>
-            <p id="feedback-definition"></p>
-            <button id="ai-tutor-btn">Explain with AI Tutor</button>
-            <div id="ai-response-container" class="hidden">
-                <p id="ai-response-text"></p>
-            </div>
-        </div>
     </main>
 
     <script src="api.js"></script>
