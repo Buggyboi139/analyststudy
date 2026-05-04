@@ -299,9 +299,11 @@ async function startStudyMode(isRetest = false, restoreIds = null) {
             if (restored.length > 0) {
                 questions = restored;
             }
+            state.questions = questions;
+        } else {
+            state.questions = shuffleArray(questions).slice(0, 25);
         }
 
-        state.questions = shuffleArray(questions);
         state.isRetest = isRetest;
 
         UI.totalQNum.textContent = state.questions.length;
