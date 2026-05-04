@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CySA+ Prep</title>
+    <title>Security Study Arena</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>CySA+ Study Arena</h1>
+        <h1>Security Study Arena</h1>
         <button id="theme-toggle">Toggle Dark Mode</button>
     </header>
 
     <main id="app-container">
         <section id="config-section">
             <h2>Configuration</h2>
+            <div class="input-group">
+                <label for="exam-select">Select Exam:</label>
+                <select id="exam-select">
+                    <option value="cysa">CySA+</option>
+                    <option value="secplus">Security+</option>
+                    <option value="casp">CASP+</option>
+                </select>
+            </div>
             <div class="input-group">
                 <label for="api-key">OpenRouter API Key (BYOK):</label>
                 <input type="password" id="api-key" placeholder="sk-or-v1-...">
