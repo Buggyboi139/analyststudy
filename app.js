@@ -143,8 +143,8 @@ function showFeedback(q, selectedIndex) {
     const isCorrect = selectedIndex === q.answer;
     
     UI.feedbackVerdict.textContent = isCorrect ? "Correct!" : "Incorrect.";
-    UI.feedbackVerdict.style.color = isCorrect ? "#10b981" : "#fb7185";
-    UI.feedbackCard.style.borderLeftColor = isCorrect ? "#10b981" : "#fb7185";
+    UI.feedbackVerdict.style.color = isCorrect ? "var(--success)" : "var(--error)";
+    UI.feedbackCard.style.borderLeftColor = isCorrect ? "var(--success)" : "var(--error)";
     UI.feedbackDefinition.textContent = q.definition;
 
     if (!isCorrect && state.apiKey) {
