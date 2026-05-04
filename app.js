@@ -1,23 +1,29 @@
 const UI = {
-    themeToggle: document.getElementById('theme-toggle'),
+    homeLink: document.getElementById('home-link'),
     examSelect: document.getElementById('exam-select'),
     apiKeyInput: document.getElementById('api-key'),
     saveKeyBtn: document.getElementById('save-key-btn'),
     startBtn: document.getElementById('start-btn'),
     configSection: document.getElementById('config-section'),
-    quizSection: document.getElementById('quiz-section'),
+    quizContainer: document.getElementById('quiz-container'),
     questionText: document.getElementById('question-text'),
     optionsContainer: document.getElementById('options-container'),
     currentQNum: document.getElementById('current-q-num'),
     totalQNum: document.getElementById('total-q-num'),
     prevBtn: document.getElementById('prev-btn'),
     nextBtn: document.getElementById('next-btn'),
+    hintBtn: document.getElementById('hint-btn'),
+    hintContainer: document.getElementById('hint-container'),
+    hintText: document.getElementById('hint-text'),
     feedbackCard: document.getElementById('feedback-card'),
     feedbackVerdict: document.getElementById('feedback-verdict'),
     feedbackDefinition: document.getElementById('feedback-definition'),
     aiTutorBtn: document.getElementById('ai-tutor-btn'),
     aiResponseContainer: document.getElementById('ai-response-container'),
-    aiResponseText: document.getElementById('ai-response-text')
+    aiResponseText: document.getElementById('ai-response-text'),
+    correctCount: document.getElementById('correct-count'),
+    incorrectCount: document.getElementById('incorrect-count'),
+    historyList: document.getElementById('history-list')
 };
 
 let state = {
@@ -25,7 +31,9 @@ let state = {
     currentIndex: 0,
     apiKey: '',
     selectedAnswer: null,
-    answers: {}
+    answers: {},
+    correct: 0,
+    incorrect: 0
 };
 
 function init() {
@@ -33,11 +41,6 @@ function init() {
     if (savedKey) {
         UI.apiKeyInput.value = savedKey;
         state.apiKey = savedKey;
-    }
-
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        document.body.setAttribute('data-theme', 'light');
     }
 
     UI.saveKeyBtn.addEventListener('click', () => {
@@ -49,21 +52,27 @@ function init() {
         }
     });
 
-    UI.themeToggle.addEventListener('click', () => {
-        const isLight = document.body.getAttribute('data-theme') === 'light';
-        if (isLight) {
-            document.body.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.body.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-        }
-    });
-
+    UI.homeLink.addEventListener('click', resetApp);
     UI.startBtn.addEventListener('click', startStudyMode);
     UI.nextBtn.addEventListener('click', nextQuestion);
     UI.prevBtn.addEventListener('click', prevQuestion);
     UI.aiTutorBtn.addEventListener('click', handleAITutor);
+    UI.hintBtn.addEventListener('click', handleHint);
+}
+
+function resetApp(e) {
+    if(e) e.preventDefault();
+    UI.quizContainer.classList.remove('active-view');
+    UI.quizContainer.classList.add('hidden-view');
+    UI.configSection.classList.remove('hidden-view');
+    UI.configSection.classList.add('active-view');
+    
+    state.currentIndex = 0;
+    state.answers = {};
+    state.correct = 0;
+    state.incorrect = 0;
+    updateScoreboard();
+    UI.historyList.innerHTML = '';
 }
 
 async function startStudyMode() {
@@ -72,20 +81,48 @@ async function startStudyMode() {
 
     try {
         const res = await fetch(filename);
-        if (!res.ok) {
-            throw new Error(`Failed to load ${filename}`);
-        }
+        if (!res.ok) throw new Error();
         state.questions = await res.json();
         UI.totalQNum.textContent = state.questions.length;
         
         UI.configSection.classList.remove('active-view');
         UI.configSection.classList.add('hidden-view');
-        UI.quizSection.classList.remove('hidden-view');
-        UI.quizSection.classList.add('active-view');
+        UI.quizContainer.classList.remove('hidden-view');
+        UI.quizContainer.classList.add('active-view');
         
         loadQuestion();
     } catch (err) {
-        alert(`Could not load ${filename}. Ensure the file exists in the directory and you are running a local server.`);
+        alert(`Could not load ${filename}.`);
+    }
+}
+
+function updateScoreboard() {
+    UI.correctCount.textContent = state.correct;
+    UI.incorrectCount.textContent = state.incorrect;
+}
+
+function renderHistory() {
+    UI.historyList.innerHTML = '';
+    
+    for (let i = 0; i <= state.currentIndex; i++) {
+        if (state.answers[i] === undefined && i !== state.currentIndex) continue;
+
+        const item = document.createElement('button');
+        item.className = `history-item ${i === state.currentIndex ? 'active' : ''}`;
+        
+        let icon = '❓';
+        if (state.answers[i] !== undefined) {
+            const isCorrect = state.answers[i] === state.questions[i].answer;
+            icon = isCorrect ? '✅' : '❌';
+        }
+
+        item.innerHTML = `<span>Question ${i + 1}</span> <span>${icon}</span>`;
+        item.addEventListener('click', () => {
+            state.currentIndex = i;
+            loadQuestion();
+        });
+        
+        UI.historyList.appendChild(item);
     }
 }
 
@@ -94,7 +131,14 @@ function loadQuestion() {
     UI.feedbackCard.classList.remove('active-view');
     UI.aiResponseContainer.classList.add('hidden-view');
     UI.aiResponseContainer.classList.remove('active-view');
+    UI.hintContainer.classList.add('hidden-view');
+    UI.hintContainer.classList.remove('active-view');
+    
     UI.aiResponseText.textContent = '';
+    UI.hintText.textContent = '';
+    
+    UI.hintBtn.disabled = !state.apiKey;
+    UI.hintBtn.textContent = 'Hint';
     
     state.selectedAnswer = state.answers[state.currentIndex] !== undefined ? state.answers[state.currentIndex] : null;
 
@@ -125,14 +169,28 @@ function loadQuestion() {
     UI.prevBtn.disabled = state.currentIndex === 0;
     UI.nextBtn.textContent = state.currentIndex === state.questions.length - 1 ? 'Finish' : 'Next';
 
+    renderHistory();
+
     if (state.selectedAnswer !== null) {
         showFeedback(q, state.selectedAnswer);
+        UI.hintBtn.disabled = true;
     }
 }
 
 function handleAnswer(selectedIndex) {
+    const q = state.questions[state.currentIndex];
+    const isCorrect = selectedIndex === q.answer;
+    
     state.selectedAnswer = selectedIndex;
     state.answers[state.currentIndex] = selectedIndex;
+    
+    if (isCorrect) {
+        state.correct++;
+    } else {
+        state.incorrect++;
+    }
+    
+    updateScoreboard();
     loadQuestion();
 }
 
@@ -173,12 +231,26 @@ async function handleAITutor() {
     UI.aiTutorBtn.textContent = "Explain with AI Tutor";
 }
 
+async function handleHint() {
+    UI.hintBtn.disabled = true;
+    UI.hintBtn.textContent = "Loading...";
+    UI.hintContainer.classList.remove('hidden-view');
+    UI.hintContainer.classList.add('active-view');
+    UI.hintText.textContent = "Fetching hint...";
+
+    const q = state.questions[state.currentIndex];
+    const response = await fetchAIHint(state.apiKey, q);
+    
+    UI.hintText.textContent = response;
+    UI.hintBtn.textContent = "Hint Provided";
+}
+
 function nextQuestion() {
     if (state.currentIndex < state.questions.length - 1) {
         state.currentIndex++;
         loadQuestion();
     } else {
-        alert("End of quiz. Refresh to restart.");
+        alert("End of quiz. Click the logo to return home.");
     }
 }
 
