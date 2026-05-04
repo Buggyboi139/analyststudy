@@ -347,6 +347,59 @@ select option {
     font-size: 0.95rem;
 }
 
+.mode-toggle {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.mode-btn {
+    flex: 1;
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-glass);
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.2s;
+}
+
+.mode-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.mode-btn.active {
+    background: var(--gradient-primary);
+    color: #0f172a;
+    border-color: transparent;
+    font-weight: 700;
+}
+
+.primary-btn.retest {
+    background: transparent;
+    border: 2px solid var(--error);
+    color: var(--error);
+    margin-top: 12px;
+}
+
+.primary-btn.retest:not(.hidden-view) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.retest-badge {
+    background: var(--error);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
 @media (max-width: 900px) {
     #quiz-container.active-view {
         flex-direction: column;

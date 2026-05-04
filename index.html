@@ -28,6 +28,14 @@
             </div>
 
             <div class="input-group">
+                <label>Question Mode</label>
+                <div class="mode-toggle">
+                    <button id="mode-standard" class="mode-btn active">Standard</button>
+                    <button id="mode-definitions" class="mode-btn">Definitions</button>
+                </div>
+            </div>
+
+            <div class="input-group">
                 <label for="api-key">OpenRouter API Key (BYOK)</label>
                 <div class="input-row">
                     <input type="password" id="api-key" class="glass-input" placeholder="sk-or-v1-...">
@@ -36,6 +44,7 @@
             </div>
 
             <button id="start-btn" class="primary-btn">Start Study Mode</button>
+            <button id="retest-btn" class="primary-btn retest hidden-view">Retest Incorrect Items</button>
         </section>
 
         <section id="quiz-container" class="hidden-view">
