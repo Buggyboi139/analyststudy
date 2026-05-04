@@ -1,0 +1,28 @@
+[
+    {
+        "id": "cysa-001",
+        "domain": "Threat and Vulnerability Management",
+        "question": "During a vulnerability scan, a report indicates that a web server is susceptible to a Cross-Site Scripting (XSS) attack. Which of the following is the BEST mitigation strategy?",
+        "options": [
+            "Implement a Web Application Firewall (WAF).",
+            "Ensure input validation and output encoding are configured in the application code.",
+            "Install an Intrusion Detection System (IDS) on the network segment.",
+            "Apply the latest operating system patches to the web server."
+        ],
+        "answer": 1,
+        "definition": "Input validation and output encoding ensure that user-supplied data is stripped of malicious scripts before being processed or displayed by the application. This addresses the root cause of XSS."
+    },
+    {
+        "id": "cysa-002",
+        "domain": "Software and Systems Security",
+        "question": "A security analyst is reviewing logs and notices repeated failed login attempts to a service account from an unknown IP address outside of normal business hours. What type of attack is most likely occurring?",
+        "options": [
+            "Brute Force",
+            "SQL Injection",
+            "Pass the Hash",
+            "Phishing"
+        ],
+        "answer": 0,
+        "definition": "A brute force attack involves submitting many passwords or passphrases with the hope of eventually guessing correctly. Repeated failed logins from a single source strongly indicate this."
+    }
+]
