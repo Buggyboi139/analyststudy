@@ -35,7 +35,7 @@ const UI = {
 };
 
 let state = {
-    exam: 'cysa',
+    exam: '',
     questions:[],
     currentIndex: 0,
     apiKey: '',
@@ -154,7 +154,7 @@ function updateRetestButton() {
 
 function getIncorrectIds() {
     try {
-        return JSON.parse(localStorage.getItem(getStorageKey('incorrect'))) ||[];
+        return JSON.parse(localStorage.getItem(getStorageKey('incorrect'))) || [];
     } catch {
         return[];
     }
@@ -254,15 +254,18 @@ async function startStudyMode(isRetest = false, restoreIds = null) {
     }
 
     state.exam = UI.examSelect.value;
-    const filename = state.exam === 'cysa' ? 'cysa/cysa.json' : `${state.exam}.json`;
-
+    
+    let res;
     try {
-        const res = await fetch(filename);
+        res = await fetch(`${state.exam}/${state.exam}.json`);
+        if (!res.ok) {
+            res = await fetch(`${state.exam}.json`);
+        }
         if (!res.ok) throw new Error();
 
         const rawData = await res.json();
         
-        if (!rawData || (!rawData.questions && (!rawData.standard || !rawData.definitions))) {
+        if (!rawData || (!rawData.questions && (!rawData.standard || !rawData.definitions) && !Array.isArray(rawData))) {
             throw new Error("Invalid schema");
         }
 
@@ -297,7 +300,7 @@ async function startStudyMode(isRetest = false, restoreIds = null) {
         }
 
         if (restoreIds) {
-            const idMap = new Map(questions.map(q => [q._id, q]));
+            const idMap = new Map(questions.map(q =>[q._id, q]));
             const restored =[];
             for (const id of restoreIds) {
                 const q = idMap.get(id);
