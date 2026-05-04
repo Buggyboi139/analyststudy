@@ -1,0 +1,1843 @@
+{
+  "exam": "Python",
+  "version": 2,
+  "standard":[
+    {
+      "objective": "1.1",
+      "question": "What is the output of the following code snippet: `print(type(3 / 2))`?",
+      "options":[
+        "<class 'int'>",
+        "<class 'float'>",
+        "<class 'double'>",
+        "<class 'number'>"
+      ],
+      "answer": "<class 'float'>",
+      "definition": "In Python 3, the division operator always returns a float, even if the result is a whole number."
+    },
+    {
+      "objective": "1.1",
+      "question": "What is the output of `print(3 // 2)`?",
+      "options":[
+        "1.5",
+        "1",
+        "2",
+        "1.0"
+      ],
+      "answer": "1",
+      "definition": "The `//` operator performs floor division, rounding down to the nearest integer."
+    },
+    {
+      "objective": "1.2",
+      "question": "Predict the output: `my_list = [10, 20, 30, 40, 50]; print(my_list[-3:])`",
+      "options":[
+        "[20, 30]",
+        "[30, 40, 50]",
+        "[10, 20]",
+        "[40, 50]"
+      ],
+      "answer": "[30, 40, 50]",
+      "definition": "Negative slicing starts from the end. `[-3:]` extracts the third-to-last element to the end."
+    },
+    {
+      "objective": "1.2",
+      "question": "What is the result of `'Python'[::-1]`?",
+      "options":[
+        "nohtyP",
+        "P",
+        "n",
+        "SyntaxError"
+      ],
+      "answer": "nohtyP",
+      "definition": "Using `[::-1]` as a slice step is a common Python idiom to reverse a sequence like a string."
+    },
+    {
+      "objective": "1.3",
+      "question": "What does `for i in range(1, 6, 2): print(i, end='')` output?",
+      "options":[
+        "135",
+        "123456",
+        "246",
+        "1357"
+      ],
+      "answer": "135",
+      "definition": "The `range(start, stop, step)` function outputs 1, 3, and 5 before stopping at 6."
+    },
+    {
+      "objective": "1.3",
+      "question": "What will `print('a' * 3)` evaluate to?",
+      "options":[
+        "a3",
+        "aaa",
+        "['a', 'a', 'a']",
+        "TypeError"
+      ],
+      "answer": "aaa",
+      "definition": "The multiplication operator on a string repeats the string that many times."
+    },
+    {
+      "objective": "1.4",
+      "question": "What is the output of `d = {'a': 1}; print(d.get('b', 2))`?",
+      "options":[
+        "1",
+        "2",
+        "None",
+        "KeyError"
+      ],
+      "answer": "2",
+      "definition": "The `get()` method returns the fallback value (2) if the key does not exist in the dictionary."
+    },
+    {
+      "objective": "1.4",
+      "question": "What happens if you try to use a list as a dictionary key: `d = {[1, 2]: 'value'}`?",
+      "options":[
+        "The dictionary is created.",
+        "The list is converted to a tuple.",
+        "TypeError: unhashable type",
+        "SyntaxError"
+      ],
+      "answer": "TypeError: unhashable type",
+      "definition": "Dictionary keys must be immutable and hashable; lists are mutable and thus unhashable."
+    },
+    {
+      "objective": "1.5",
+      "question": "What does `print({1, 2, 2, 3})` output?",
+      "options":[
+        "[1, 2, 2, 3]",
+        "{1, 2, 3}",
+        "(1, 2, 3)",
+        "SyntaxError"
+      ],
+      "answer": "{1, 2, 3}",
+      "definition": "Sets are collections of unique elements. Duplicates are removed automatically upon creation."
+    },
+    {
+      "objective": "1.5",
+      "question": "How do you create an empty set?",
+      "options":[
+        "{}",
+        "set()",
+        "[]",
+        "()"
+      ],
+      "answer": "set()",
+      "definition": "Using `{}` creates an empty dictionary. You must use `set()` to instantiate an empty set."
+    },
+    {
+      "objective": "1.6",
+      "question": "What is the difference between `==` and `is`?",
+      "options":[
+        "`==` compares identity, `is` compares value.",
+        "`==` compares values, `is` compares memory identity.",
+        "They are identical.",
+        "`is` is used for mathematical equality only."
+      ],
+      "answer": "`==` compares values, `is` compares memory identity.",
+      "definition": "`==` checks if values are equivalent. `is` checks if references point to the same memory object."
+    },
+    {
+      "objective": "1.6",
+      "question": "What is the output of `bool('')`?",
+      "options":[
+        "True",
+        "False",
+        "None",
+        "0"
+      ],
+      "answer": "False",
+      "definition": "An empty string is inherently falsy in Python and evaluates to `False`."
+    },
+    {
+      "objective": "1.7",
+      "question": "What is the output of `name='Bob'; print(f'Hi {name}')`?",
+      "options":[
+        "Hi {name}",
+        "Hi Bob",
+        "f'Hi Bob'",
+        "TypeError"
+      ],
+      "answer": "Hi Bob",
+      "definition": "F-strings format expressions inside curly braces at runtime directly into the string."
+    },
+    {
+      "objective": "1.7",
+      "question": "What does `print(r'\\n')` output?",
+      "options":[
+        "A newline character",
+        "\\n",
+        "r'\\n'",
+        "Error"
+      ],
+      "answer": "\\n",
+      "definition": "The `r` prefix creates a raw string, meaning escape characters like `\\n` are treated as literal characters."
+    },
+    {
+      "objective": "1.8",
+      "question": "Which of these is a mutable data type?",
+      "options":[
+        "Tuple",
+        "String",
+        "List",
+        "Integer"
+      ],
+      "answer": "List",
+      "definition": "Lists can be modified in place after creation, making them mutable."
+    },
+    {
+      "objective": "1.8",
+      "question": "Which operator performs exponentiation?",
+      "options":[
+        "^",
+        "**",
+        "//",
+        "%"
+      ],
+      "answer": "**",
+      "definition": "The `**` operator raises the left operand to the power of the right operand."
+    },
+    {
+      "objective": "1.9",
+      "question": "What is the output of `print(0.1 + 0.2 == 0.3)`?",
+      "options":[
+        "True",
+        "False",
+        "SyntaxError",
+        "None"
+      ],
+      "answer": "False",
+      "definition": "Due to floating-point representation limits in binary, 0.1 + 0.2 is slightly larger than 0.3."
+    },
+    {
+      "objective": "1.9",
+      "question": "What is the output of `len('hello')`?",
+      "options":[
+        "4",
+        "5",
+        "6",
+        "TypeError"
+      ],
+      "answer": "5",
+      "definition": "The `len()` function returns the number of characters in a string."
+    },
+    {
+      "objective": "1.10",
+      "question": "What does `'a' in 'apple'` evaluate to?",
+      "options":[
+        "True",
+        "False",
+        "1",
+        "None"
+      ],
+      "answer": "True",
+      "definition": "The `in` keyword checks for membership, determining if the substring exists within the string."
+    },
+    {
+      "objective": "1.10",
+      "question": "What is the value of `type(None)`?",
+      "options":[
+        "<class 'NoneType'>",
+        "<class 'null'>",
+        "None",
+        "False"
+      ],
+      "answer": "<class 'NoneType'>",
+      "definition": "`None` is an object of its own datatype called `NoneType`."
+    },
+    {
+      "objective": "2.1",
+      "question": "Which loop structure ensures that the block runs at least once?",
+      "options":[
+        "for",
+        "while",
+        "do-while",
+        "Python has no such built-in loop."
+      ],
+      "answer": "Python has no such built-in loop.",
+      "definition": "Python does not have a native `do-while` loop. You must use `while True` with a `break`."
+    },
+    {
+      "objective": "2.1",
+      "question": "What keyword is used to skip the rest of the current iteration in a loop?",
+      "options":[
+        "pass",
+        "break",
+        "continue",
+        "skip"
+      ],
+      "answer": "continue",
+      "definition": "The `continue` statement skips the remaining code in the current iteration and jumps to the next."
+    },
+    {
+      "objective": "2.2",
+      "question": "When does the `else` block of a `for` loop execute?",
+      "options":[
+        "When the loop encounters a break statement.",
+        "When the iterable is empty.",
+        "When the loop finishes all iterations without hitting a break.",
+        "It executes every time the loop runs."
+      ],
+      "answer": "When the loop finishes all iterations without hitting a break.",
+      "definition": "The `else` clause in a loop executes only if the loop naturally exhausts its iterable without being interrupted by a `break`."
+    },
+    {
+      "objective": "2.2",
+      "question": "What is the output of `for i in range(3): pass; print(i)`?",
+      "options":[
+        "0 1 2",
+        "2",
+        "3",
+        "SyntaxError"
+      ],
+      "answer": "2",
+      "definition": "The loop exhausts, leaving `i` as 2. The print statement is outside the loop and prints the final value."
+    },
+    {
+      "objective": "2.3",
+      "question": "How do you write an inline if-else (ternary) expression?",
+      "options":[
+        "x if condition else y",
+        "condition ? x : y",
+        "if condition x else y",
+        "x(condition)y"
+      ],
+      "answer": "x if condition else y",
+      "definition": "Python's conditional expression follows the syntax: `value_if_true if condition else value_if_false`."
+    },
+    {
+      "objective": "2.3",
+      "question": "What does `1 == 1 and 2 == 3` evaluate to?",
+      "options":[
+        "True",
+        "False",
+        "None",
+        "TypeError"
+      ],
+      "answer": "False",
+      "definition": "The `and` operator requires both operands to be true. Since 2 == 3 is false, the expression is false."
+    },
+    {
+      "objective": "2.4",
+      "question": "What is short-circuit evaluation in `or` expressions?",
+      "options":[
+        "If the first operand is true, the second is not evaluated.",
+        "If the first operand is false, the second is not evaluated.",
+        "Both operands are always evaluated.",
+        "The operation fails if it takes too long."
+      ],
+      "answer": "If the first operand is true, the second is not evaluated.",
+      "definition": "Python uses short-circuit logic: in an `or` statement, if the first value is true, the overall result is immediately true."
+    },
+    {
+      "objective": "2.4",
+      "question": "What does `bool([])` evaluate to?",
+      "options":[
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "definition": "Empty collections like lists, dicts, and tuples evaluate to `False` in a boolean context."
+    },
+    {
+      "objective": "2.5",
+      "question": "Which of these is a valid way to match patterns in Python 3.10+?",
+      "options":[
+        "switch-case",
+        "match-case",
+        "select-case",
+        "if-match"
+      ],
+      "answer": "match-case",
+      "definition": "Python 3.10 introduced structural pattern matching using the `match` and `case` keywords."
+    },
+    {
+      "objective": "2.5",
+      "question": "What is the wildcard pattern in a `match-case` block?",
+      "options":[
+        "case *:",
+        "case default:",
+        "case _:",
+        "case all:"
+      ],
+      "answer": "case _:",
+      "definition": "The underscore `_` acts as the catch-all wildcard pattern in structural pattern matching."
+    },
+    {
+      "objective": "3.1",
+      "question": "How do you properly modify a global variable inside a function?",
+      "options":[
+        "Use the `global` keyword.",
+        "Use the `nonlocal` keyword.",
+        "Just assign it.",
+        "Use `self`."
+      ],
+      "answer": "Use the `global` keyword.",
+      "definition": "The `global` keyword explicitly declares that a variable points to the module-level scope."
+    },
+    {
+      "objective": "3.1",
+      "question": "What does `nonlocal` do?",
+      "options":[
+        "Modifies a global variable.",
+        "Modifies a variable in the nearest enclosing non-global scope.",
+        "Creates a new variable.",
+        "Deletes a variable."
+      ],
+      "answer": "Modifies a variable in the nearest enclosing non-global scope.",
+      "definition": "`nonlocal` is used in nested functions to rebind variables from the outer function's scope."
+    },
+    {
+      "objective": "3.2",
+      "question": "What is the danger of using a mutable default argument like `def f(x=[]):`?",
+      "options":[
+        "It throws a SyntaxError.",
+        "The list is created once and shared across all calls.",
+        "It becomes a tuple.",
+        "It resets every time."
+      ],
+      "answer": "The list is created once and shared across all calls.",
+      "definition": "Default arguments are evaluated once at function definition time, so mutable defaults share state across calls."
+    },
+    {
+      "objective": "3.2",
+      "question": "How do you accept an arbitrary number of positional arguments?",
+      "options":[
+        "def func(**kwargs):",
+        "def func(*args):",
+        "def func(args=[]):",
+        "def func(any):"
+      ],
+      "answer": "def func(*args):",
+      "definition": "The `*args` syntax packs excess positional arguments into a tuple."
+    },
+    {
+      "objective": "3.3",
+      "question": "What type does `**kwargs` evaluate to inside a function?",
+      "options":[
+        "List",
+        "Tuple",
+        "Dictionary",
+        "Set"
+      ],
+      "answer": "Dictionary",
+      "definition": "`**kwargs` captures excess keyword arguments and stores them as a dictionary mapping strings to values."
+    },
+    {
+      "objective": "3.3",
+      "question": "Which of these lambda definitions is syntactically correct?",
+      "options":[
+        "lambda x: x + 1",
+        "def lambda x: x + 1",
+        "lambda x = x + 1",
+        "lambda (x): x + 1"
+      ],
+      "answer": "lambda x: x + 1",
+      "definition": "Lambdas use the syntax `lambda arguments: expression` and do not use the `def` or `return` keywords."
+    },
+    {
+      "objective": "3.4",
+      "question": "What is a closure in Python?",
+      "options":[
+        "A function that closes the program.",
+        "A function that retains state from its enclosing scope.",
+        "A method to close files automatically.",
+        "A syntax error in nested loops."
+      ],
+      "answer": "A function that retains state from its enclosing scope.",
+      "definition": "A closure is an inner function that captures and remembers the variables of its outer function."
+    },
+    {
+      "objective": "3.4",
+      "question": "What is the return value of a function that lacks a `return` statement?",
+      "options":[
+        "0",
+        "False",
+        "None",
+        "Raises an error"
+      ],
+      "answer": "None",
+      "definition": "If no return statement is specified, Python functions implicitly return `None`."
+    },
+    {
+      "objective": "3.5",
+      "question": "What does a decorator essentially do?",
+      "options":[
+        "Deletes a function.",
+        "Wraps a function to modify its behavior.",
+        "Makes a function run faster.",
+        "Generates documentation."
+      ],
+      "answer": "Wraps a function to modify its behavior.",
+      "definition": "A decorator takes a function, adds functionality to it, and returns the modified wrapper function."
+    },
+    {
+      "objective": "3.5",
+      "question": "How do you enforce keyword-only arguments in a function definition?",
+      "options":[
+        "Place them after a `*` parameter.",
+        "Prefix them with `**`.",
+        "Use the `keyword` decorator.",
+        "It is not possible."
+      ],
+      "answer": "Place them after a `*` parameter.",
+      "definition": "Arguments defined after a bare `*` or `*args` can only be passed by keyword, not by position."
+    },
+    {
+      "objective": "4.1",
+      "question": "What is the purpose of `__init__`?",
+      "options":[
+        "To destroy an object.",
+        "To initialize an instance's state.",
+        "To create a class.",
+        "To import a module."
+      ],
+      "answer": "To initialize an instance's state.",
+      "definition": "The `__init__` dunder method acts as the constructor, setting up attributes for newly created objects."
+    },
+    {
+      "objective": "4.1",
+      "question": "What does `self` represent in a class method?",
+      "options":[
+        "The class itself.",
+        "The parent class.",
+        "The instance calling the method.",
+        "A global variable."
+      ],
+      "answer": "The instance calling the method.",
+      "definition": "`self` is the conventional name for the first argument of instance methods, referencing the specific object instance."
+    },
+    {
+      "objective": "4.2",
+      "question": "Which function is used to invoke a parent class's method?",
+      "options":[
+        "parent()",
+        "base()",
+        "super()",
+        "this()"
+      ],
+      "answer": "super()",
+      "definition": "`super()` allows you to call methods from a superclass, often used in `__init__` for inheritance."
+    },
+    {
+      "objective": "4.2",
+      "question": "What is Multiple Inheritance?",
+      "options":[
+        "A class inheriting from multiple child classes.",
+        "A class inheriting from more than one base class.",
+        "Creating multiple instances.",
+        "Nesting multiple classes."
+      ],
+      "answer": "A class inheriting from more than one base class.",
+      "definition": "Python supports multiple inheritance, allowing a class to subclass and inherit from multiple parent classes simultaneously."
+    },
+    {
+      "objective": "4.3",
+      "question": "What is the Method Resolution Order (MRO)?",
+      "options":[
+        "The order in which variables are initialized.",
+        "The sequence in which base classes are searched for a method.",
+        "The order of imports.",
+        "The compilation order."
+      ],
+      "answer": "The sequence in which base classes are searched for a method.",
+      "definition": "MRO determines exactly how Python navigates the inheritance tree to find the correct method to execute."
+    },
+    {
+      "objective": "4.3",
+      "question": "Which built-in method displays the MRO of a class?",
+      "options":[
+        "mro()",
+        "__mro__",
+        "get_mro()",
+        "tree()"
+      ],
+      "answer": "mro()",
+      "definition": "Both the `.mro()` method and the `.__mro__` attribute return a tuple of classes showing the resolution order."
+    },
+    {
+      "objective": "4.4",
+      "question": "What is the difference between `@classmethod` and `@staticmethod`?",
+      "options":[
+        "`@classmethod` takes `cls` as the first argument; `@staticmethod` takes no implicit first argument.",
+        "There is no difference.",
+        "`@staticmethod` can only be called from an instance.",
+        "`@classmethod` cannot be inherited."
+      ],
+      "answer": "`@classmethod` takes `cls` as the first argument; `@staticmethod` takes no implicit first argument.",
+      "definition": "Class methods operate on the class itself (`cls`), while static methods act like regular functions bundled inside the class."
+    },
+    {
+      "objective": "4.4",
+      "question": "What is a dataclass?",
+      "options":[
+        "A class meant exclusively for database connections.",
+        "A decorator that automatically generates special methods like `__init__` and `__repr__`.",
+        "A dictionary alternative.",
+        "A module for parsing CSVs."
+      ],
+      "answer": "A decorator that automatically generates special methods like `__init__` and `__repr__`.",
+      "definition": "Introduced in Python 3.7, `@dataclass` drastically reduces boilerplate when creating classes to store data."
+    },
+    {
+      "objective": "4.5",
+      "question": "What does name mangling do in Python?",
+      "options":[
+        "Prefixes double-underscore attributes with `_ClassName` to prevent accidental overriding.",
+        "Deletes unused variables.",
+        "Encodes strings.",
+        "Changes function names dynamically."
+      ],
+      "answer": "Prefixes double-underscore attributes with `_ClassName` to prevent accidental overriding.",
+      "definition": "Attributes starting with `__` are \"mangled\" to make it harder for subclasses to accidentally override them."
+    },
+    {
+      "objective": "4.5",
+      "question": "What does `issubclass(A, B)` check?",
+      "options":[
+        "If B is a child of A.",
+        "If A is derived from class B.",
+        "If A and B are the same class.",
+        "If A is an instance of B."
+      ],
+      "answer": "If A is derived from class B.",
+      "definition": "The `issubclass()` built-in checks whether the first argument is a subclass of the second argument."
+    },
+    {
+      "objective": "5.1",
+      "question": "What does `[x for x in range(5) if x % 2 == 0]` evaluate to?",
+      "options":[
+        "[1, 3]",
+        "[0, 2, 4]",
+        "[2, 4]",
+        "[0, 1, 2, 3, 4]"
+      ],
+      "answer": "[0, 2, 4]",
+      "definition": "This list comprehension returns the even numbers from the range 0 to 4."
+    },
+    {
+      "objective": "5.1",
+      "question": "What type does `(x for x in range(3))` create?",
+      "options":[
+        "List",
+        "Tuple",
+        "Generator",
+        "Set"
+      ],
+      "answer": "Generator",
+      "definition": "Parentheses surrounding a comprehension syntax create a generator expression, not a tuple."
+    },
+    {
+      "objective": "5.2",
+      "question": "Which keyword yields values one at a time and maintains state?",
+      "options":[
+        "generate",
+        "return",
+        "yield",
+        "continue"
+      ],
+      "answer": "yield",
+      "definition": "`yield` pauses the function, returns a value, and saves local state to resume upon the next iteration."
+    },
+    {
+      "objective": "5.2",
+      "question": "How do you fetch the next value from a generator object?",
+      "options":[
+        "next()",
+        "step()",
+        "forward()",
+        "pop()"
+      ],
+      "answer": "next()",
+      "definition": "The `next()` built-in function advances the iterator to yield the next item."
+    },
+    {
+      "objective": "5.3",
+      "question": "What does a dictionary comprehension look like?",
+      "options":[
+        "[k: v for k, v in dict]",
+        "{k: v for k, v in items}",
+        "(k=v for k, v in items)",
+        "dict(k, v for k in items)"
+      ],
+      "answer": "{k: v for k, v in items}",
+      "definition": "Dictionary comprehensions use curly braces and a colon to separate keys and values: `{key: value for item in iterable}`."
+    },
+    {
+      "objective": "5.3",
+      "question": "Can you nest list comprehensions?",
+      "options":[
+        "No, syntax error.",
+        "Yes, by putting one comprehension inside another.",
+        "Only in Python 2.",
+        "Yes, but only with dictionaries."
+      ],
+      "answer": "Yes, by putting one comprehension inside another.",
+      "definition": "Nested list comprehensions are valid and often used to flatten matrices or generate grids."
+    },
+    {
+      "objective": "5.4",
+      "question": "What is the primary memory advantage of a generator over a list comprehension?",
+      "options":[
+        "Generators process faster.",
+        "Generators evaluate lazily, taking up minimal memory.",
+        "Lists use too much CPU.",
+        "Generators do not require garbage collection."
+      ],
+      "answer": "Generators evaluate lazily, taking up minimal memory.",
+      "definition": "Generators produce items one at a time on demand, avoiding the memory cost of building an entire list in memory."
+    },
+    {
+      "objective": "5.4",
+      "question": "What exception is raised when an iterator is completely exhausted?",
+      "options":[
+        "StopIteration",
+        "EndException",
+        "ExhaustedError",
+        "EOFError"
+      ],
+      "answer": "StopIteration",
+      "definition": "When `next()` is called on an exhausted iterator, a `StopIteration` exception is raised."
+    },
+    {
+      "objective": "6.1",
+      "question": "How do you catch multiple exceptions in one except block?",
+      "options":[
+        "except TypeError, ValueError:",
+        "except (TypeError, ValueError):",
+        "except TypeError or ValueError:",
+        "except [TypeError, ValueError]:"
+      ],
+      "answer": "except (TypeError, ValueError):",
+      "definition": "Multiple exception types must be enclosed within a tuple in the except clause."
+    },
+    {
+      "objective": "6.1",
+      "question": "When does the `finally` block execute?",
+      "options":[
+        "Only if an exception is thrown.",
+        "Only if no exception is thrown.",
+        "It always executes, regardless of errors.",
+        "Right before the `try` block."
+      ],
+      "answer": "It always executes, regardless of errors.",
+      "definition": "The `finally` block is guaranteed to run, making it ideal for cleanup actions like closing network sockets."
+    },
+    {
+      "objective": "6.2",
+      "question": "What does the `else` block do in a `try...except` statement?",
+      "options":[
+        "Runs if an exception is caught.",
+        "Runs if no exception was raised in the `try` block.",
+        "Runs indefinitely.",
+        "Acts as a fallback if `finally` fails."
+      ],
+      "answer": "Runs if no exception was raised in the `try` block.",
+      "definition": "The `else` clause in exception handling runs only if the code inside the `try` block executed successfully."
+    },
+    {
+      "objective": "6.2",
+      "question": "How do you manually trigger an exception?",
+      "options":[
+        "throw ValueError()",
+        "raise ValueError()",
+        "trigger ValueError()",
+        "except ValueError()"
+      ],
+      "answer": "raise ValueError()",
+      "definition": "The `raise` keyword is used to explicitly throw an exception in Python."
+    },
+    {
+      "objective": "6.3",
+      "question": "What statement guarantees proper cleanup of resources like files?",
+      "options":[
+        "use",
+        "with",
+        "open",
+        "manage"
+      ],
+      "answer": "with",
+      "definition": "The `with` statement leverages context managers to ensure files are closed automatically, even if an exception occurs."
+    },
+    {
+      "objective": "6.3",
+      "question": "What mode opens a file for writing, but creates a new one if it doesn't exist, and truncates if it does?",
+      "options":[
+        "r",
+        "w",
+        "a",
+        "x"
+      ],
+      "answer": "w",
+      "definition": "The `w` mode opens a file for writing, overwriting (truncating) it completely if it already exists."
+    },
+    {
+      "objective": "6.4",
+      "question": "Which file mode opens a file exclusively for creation, failing if it already exists?",
+      "options":[
+        "c",
+        "x",
+        "w+",
+        "e"
+      ],
+      "answer": "x",
+      "definition": "The `x` mode ensures exclusive creation, preventing accidental overwriting of an existing file."
+    },
+    {
+      "objective": "6.4",
+      "question": "What dunder methods define a context manager?",
+      "options":[
+        "__start__ and __stop__",
+        "__enter__ and __exit__",
+        "__init__ and __del__",
+        "__open__ and __close__"
+      ],
+      "answer": "__enter__ and __exit__",
+      "definition": "Objects supporting the `with` statement must implement the `__enter__` and `__exit__` methods."
+    },
+    {
+      "objective": "7.1",
+      "question": "Which import statement adds a module's specific function to the local namespace?",
+      "options":[
+        "import func from module",
+        "from module import func",
+        "import module.func",
+        "load func in module"
+      ],
+      "answer": "from module import func",
+      "definition": "The `from ... import ...` syntax directly brings functions or classes into the local scope."
+    },
+    {
+      "objective": "7.1",
+      "question": "What does `if __name__ == '__main__':` do?",
+      "options":[
+        "It imports the main module.",
+        "It prevents code from executing when the file is imported as a module.",
+        "It forces the script to crash if run directly.",
+        "It defines the main entry point for a class."
+      ],
+      "answer": "It prevents code from executing when the file is imported as a module.",
+      "definition": "Code under this block runs only if the file is executed directly as a script, not when imported elsewhere."
+    },
+    {
+      "objective": "7.2",
+      "question": "Which standard library module handles regular expressions?",
+      "options":[
+        "regex",
+        "re",
+        "str",
+        "pattern"
+      ],
+      "answer": "re",
+      "definition": "The `re` module provides regular expression matching operations."
+    },
+    {
+      "objective": "7.2",
+      "question": "Which module provides mathematical functions like `sqrt` and `sin`?",
+      "options":[
+        "calc",
+        "algebra",
+        "math",
+        "numbers"
+      ],
+      "answer": "math",
+      "definition": "The `math` module is part of the standard library and contains complex mathematical operations."
+    },
+    {
+      "objective": "7.3",
+      "question": "What does `json.loads(string)` do?",
+      "options":[
+        "Loads a JSON file from disk.",
+        "Parses a JSON string into a Python dictionary.",
+        "Converts a Python dictionary to a string.",
+        "Downloads JSON from a URL."
+      ],
+      "answer": "Parses a JSON string into a Python dictionary.",
+      "definition": "The `json.loads()` function (load string) deserializes a JSON-formatted string into a native Python object."
+    },
+    {
+      "objective": "7.3",
+      "question": "Which collections class remembers the order in which items were inserted?",
+      "options":[
+        "OrderedDict",
+        "DefaultDict",
+        "NamedTuple",
+        "Counter"
+      ],
+      "answer": "OrderedDict",
+      "definition": "While standard dicts maintain insertion order in modern Python, `OrderedDict` explicitly enforces ordered behaviors."
+    },
+    {
+      "objective": "7.4",
+      "question": "Which module provides operating system dependent functionality like reading environment variables?",
+      "options":[
+        "sys",
+        "os",
+        "env",
+        "system"
+      ],
+      "answer": "os",
+      "definition": "The `os` module provides tools to interface with the underlying operating system."
+    },
+    {
+      "objective": "7.4",
+      "question": "How can you retrieve command-line arguments passed to a Python script?",
+      "options":[
+        "os.args",
+        "sys.argv",
+        "console.inputs",
+        "script.args"
+      ],
+      "answer": "sys.argv",
+      "definition": "The `sys.argv` list contains the script name and any command-line arguments passed upon execution."
+    },
+    {
+      "objective": "7.5",
+      "question": "Which standard module is used to create infinite iterators?",
+      "options":[
+        "collections",
+        "functools",
+        "itertools",
+        "iterators"
+      ],
+      "answer": "itertools",
+      "definition": "The `itertools` module contains functions creating iterators for efficient looping."
+    },
+    {
+      "objective": "7.5",
+      "question": "What is the output of `collections.Counter('aabbc')`?",
+      "options":[
+        "Counter({'a': 2, 'b': 2, 'c': 1})",
+        "{'a': 2, 'b': 2, 'c': 1}",
+        "[('a', 2), ('b', 2), ('c', 1)]",
+        "TypeError"
+      ],
+      "answer": "Counter({'a': 2, 'b': 2, 'c': 1})",
+      "definition": "A `Counter` dictates the frequency of elements in an iterable."
+    },
+    {
+      "objective": "8.1",
+      "question": "What keyword is used to define an asynchronous function?",
+      "options":[
+        "async def",
+        "def async",
+        "await def",
+        "def await"
+      ],
+      "answer": "async def",
+      "definition": "The `async def` syntax declares a coroutine in Python's asyncio framework."
+    },
+    {
+      "objective": "8.1",
+      "question": "How do you pause execution of an asynchronous function until a coroutine completes?",
+      "options":[
+        "wait",
+        "pause",
+        "await",
+        "yield from"
+      ],
+      "answer": "await",
+      "definition": "The `await` keyword pauses the surrounding coroutine until the awaited task is complete."
+    },
+    {
+      "objective": "8.2",
+      "question": "What is a major limitation of threads in standard CPython due to the GIL?",
+      "options":[
+        "They cannot run multiple CPU-bound tasks in true parallel.",
+        "They cannot share memory.",
+        "They can only execute mathematical functions.",
+        "They cannot run on Linux."
+      ],
+      "answer": "They cannot run multiple CPU-bound tasks in true parallel.",
+      "definition": "The Global Interpreter Lock (GIL) prevents multiple native threads from executing Python bytecodes concurrently."
+    },
+    {
+      "objective": "8.2",
+      "question": "Which module allows you to bypass the GIL for true parallel processing?",
+      "options":[
+        "threading",
+        "asyncio",
+        "multiprocessing",
+        "subprocess"
+      ],
+      "answer": "multiprocessing",
+      "definition": "The `multiprocessing` module spawns separate processes, each with its own interpreter and memory space, bypassing the GIL."
+    },
+    {
+      "objective": "8.3",
+      "question": "What is Type Hinting in Python?",
+      "options":[
+        "A strict compiler check that stops code from running if types are wrong.",
+        "Annotations indicating the expected data types of variables and returns.",
+        "A feature to convert strings to ints automatically.",
+        "A syntax error in older versions of Python."
+      ],
+      "answer": "Annotations indicating the expected data types of variables and returns.",
+      "definition": "Type hints are optional annotations used by third-party tools like `mypy` to catch errors statically, but they do not enforce types at runtime."
+    },
+    {
+      "objective": "8.3",
+      "question": "How do you hint that a function returns a string?",
+      "options":[
+        "def my_func() -> str:",
+        "def my_func() : str:",
+        "def my_func(return str):",
+        "def str my_func():"
+      ],
+      "answer": "def my_func() -> str:",
+      "definition": "The `-> type` syntax indicates the expected return type of a function."
+    },
+    {
+      "objective": "8.4",
+      "question": "What does `@property` do?",
+      "options":[
+        "Makes a method private.",
+        "Allows a method to be accessed like a regular attribute.",
+        "Registers the class in a database.",
+        "Converts a variable to a string."
+      ],
+      "answer": "Allows a method to be accessed like a regular attribute.",
+      "definition": "The `@property` decorator transforms a method into a read-only descriptor, accessible without parentheses."
+    },
+    {
+      "objective": "8.4",
+      "question": "What does `__slots__` do in a class?",
+      "options":[
+        "Creates a list of methods.",
+        "Restricts the creation of dynamic attributes to save memory.",
+        "Schedules functions to run later.",
+        "Defines inheritance."
+      ],
+      "answer": "Restricts the creation of dynamic attributes to save memory.",
+      "definition": "Defining `__slots__` tells Python not to use a dynamic `__dict__` for instances, significantly reducing memory usage."
+    },
+    {
+      "objective": "8.5",
+      "question": "What is Monkey Patching?",
+      "options":[
+        "Dynamic modification of a class or module at runtime.",
+        "Fixing bugs using a linter.",
+        "Writing scripts strictly for Linux.",
+        "A type of syntax error."
+      ],
+      "answer": "Dynamic modification of a class or module at runtime.",
+      "definition": "Monkey patching refers to altering or extending behavior of a program dynamically at runtime."
+    },
+    {
+      "objective": "8.5",
+      "question": "Which function allows you to map a function over an iterable?",
+      "options":[
+        "apply()",
+        "map()",
+        "filter()",
+        "reduce()"
+      ],
+      "answer": "map()",
+      "definition": "The `map()` function applies a given function to each item of an iterable and yields the results."
+    }
+  ],
+  "definitions":[
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns the number of items in a sequence or collection?",
+      "options":[
+        "size()",
+        "length()",
+        "count()",
+        "len()"
+      ],
+      "answer": "len()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns a new sorted list from the elements of any iterable?",
+      "options":[
+        "sort()",
+        "order()",
+        "sorted()",
+        "arrange()"
+      ],
+      "answer": "sorted()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns the absolute value of a number?",
+      "options":[
+        "absolute()",
+        "abs()",
+        "val()",
+        "mag()"
+      ],
+      "answer": "abs()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns True if all elements of the iterable are true?",
+      "options":[
+        "every()",
+        "all()",
+        "any()",
+        "check()"
+      ],
+      "answer": "all()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns True if at least one element of the iterable is true?",
+      "options":[
+        "some()",
+        "any()",
+        "all()",
+        "exists()"
+      ],
+      "answer": "any()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function converts a value to a boolean?",
+      "options":[
+        "bool()",
+        "boolean()",
+        "is_true()",
+        "cast_bool()"
+      ],
+      "answer": "bool()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns the string representing a character whose Unicode code point is the given integer?",
+      "options":[
+        "str()",
+        "char()",
+        "chr()",
+        "ord()"
+      ],
+      "answer": "chr()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function takes a string and evaluates it as Python code?",
+      "options":[
+        "eval()",
+        "exec()",
+        "run()",
+        "parse()"
+      ],
+      "answer": "eval()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function supports dynamic execution of Python code blocks?",
+      "options":[
+        "run()",
+        "eval()",
+        "exec()",
+        "compile()"
+      ],
+      "answer": "exec()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns an iterator that yields tuples containing a count and the values obtained from iterating over an iterable?",
+      "options":[
+        "enumerate()",
+        "zip()",
+        "count()",
+        "iter()"
+      ],
+      "answer": "enumerate()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function constructs an iterator from elements of an iterable for which a function returns true?",
+      "options":[
+        "map()",
+        "filter()",
+        "reduce()",
+        "find()"
+      ],
+      "answer": "filter()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns a dictionary representing the current global symbol table?",
+      "options":[
+        "globals()",
+        "vars()",
+        "locals()",
+        "dir()"
+      ],
+      "answer": "globals()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns a dictionary representing the current local symbol table?",
+      "options":[
+        "locals()",
+        "globals()",
+        "vars()",
+        "dir()"
+      ],
+      "answer": "locals()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns the hash value of an object?",
+      "options":[
+        "id()",
+        "hash()",
+        "md5()",
+        "checksum()"
+      ],
+      "answer": "hash()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function invokes the built-in help system?",
+      "options":[
+        "doc()",
+        "info()",
+        "help()",
+        "man()"
+      ],
+      "answer": "help()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns the identity (memory address) of an object?",
+      "options":[
+        "memory()",
+        "hash()",
+        "id()",
+        "address()"
+      ],
+      "answer": "id()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function reads a line from input, converts it to a string, and returns it?",
+      "options":[
+        "read()",
+        "get()",
+        "input()",
+        "scan()"
+      ],
+      "answer": "input()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns True if the object argument is an instance of the classinfo argument?",
+      "options":[
+        "issubclass()",
+        "istype()",
+        "isinstance()",
+        "type()"
+      ],
+      "answer": "isinstance()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns an iterator object?",
+      "options":[
+        "iterator()",
+        "gen()",
+        "iter()",
+        "next()"
+      ],
+      "answer": "iter()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns the largest item in an iterable?",
+      "options":[
+        "largest()",
+        "max()",
+        "top()",
+        "highest()"
+      ],
+      "answer": "max()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns the smallest item in an iterable?",
+      "options":[
+        "smallest()",
+        "min()",
+        "bottom()",
+        "lowest()"
+      ],
+      "answer": "min()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function retrieves the next item from an iterator?",
+      "options":[
+        "forward()",
+        "next()",
+        "step()",
+        "iter()"
+      ],
+      "answer": "next()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function opens a file and returns a corresponding file object?",
+      "options":[
+        "read()",
+        "file()",
+        "open()",
+        "load()"
+      ],
+      "answer": "open()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns an integer representing the Unicode code point of a character?",
+      "options":[
+        "chr()",
+        "ord()",
+        "int()",
+        "ascii()"
+      ],
+      "answer": "ord()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function prints objects to the text stream?",
+      "options":[
+        "write()",
+        "output()",
+        "display()",
+        "print()"
+      ],
+      "answer": "print()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns a string containing a printable representation of an object?",
+      "options":[
+        "str()",
+        "repr()",
+        "print()",
+        "format()"
+      ],
+      "answer": "repr()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns a number rounded to a given precision in decimal digits?",
+      "options":[
+        "round()",
+        "ceil()",
+        "floor()",
+        "trunc()"
+      ],
+      "answer": "round()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function sums the items of an iterable from left to right?",
+      "options":[
+        "total()",
+        "add()",
+        "sum()",
+        "math.sum()"
+      ],
+      "answer": "sum()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function returns the type of an object?",
+      "options":[
+        "class()",
+        "type()",
+        "isinstance()",
+        "kind()"
+      ],
+      "answer": "type()"
+    },
+    {
+      "objective": "Built-ins",
+      "question": "Which function aggregates elements from each of the iterables?",
+      "options":[
+        "combine()",
+        "zip()",
+        "merge()",
+        "concat()"
+      ],
+      "answer": "zip()"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword is a logical operator that returns True if both statements are true?",
+      "options":[
+        "or",
+        "not",
+        "and",
+        "is"
+      ],
+      "answer": "and"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword is used to create an alias while importing a module?",
+      "options":[
+        "alias",
+        "as",
+        "name",
+        "like"
+      ],
+      "answer": "as"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword is used for debugging purposes to test a condition?",
+      "options":[
+        "verify",
+        "test",
+        "assert",
+        "check"
+      ],
+      "answer": "assert"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword terminates a loop prematurely?",
+      "options":[
+        "stop",
+        "exit",
+        "break",
+        "halt"
+      ],
+      "answer": "break"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword is used to define a new object blueprint?",
+      "options":[
+        "def",
+        "object",
+        "class",
+        "struct"
+      ],
+      "answer": "class"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword skips the current iteration of a loop and moves to the next?",
+      "options":[
+        "pass",
+        "skip",
+        "jump",
+        "continue"
+      ],
+      "answer": "continue"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword deletes an object or an element from a collection?",
+      "options":[
+        "remove",
+        "del",
+        "drop",
+        "erase"
+      ],
+      "answer": "del"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword handles conditional logic if previous conditions were false?",
+      "options":[
+        "elseif",
+        "else if",
+        "elif",
+        "then"
+      ],
+      "answer": "elif"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword handles exceptions in a try block?",
+      "options":[
+        "catch",
+        "except",
+        "error",
+        "handle"
+      ],
+      "answer": "except"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword guarantees code execution regardless of exceptions?",
+      "options":[
+        "always",
+        "finally",
+        "end",
+        "finish"
+      ],
+      "answer": "finally"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword loops over an iterable?",
+      "options":[
+        "while",
+        "loop",
+        "for",
+        "each"
+      ],
+      "answer": "for"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword imports specific parts of a module?",
+      "options":[
+        "include",
+        "from",
+        "load",
+        "require"
+      ],
+      "answer": "from"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword declares a variable referencing the module's top-level scope?",
+      "options":[
+        "nonlocal",
+        "global",
+        "outer",
+        "main"
+      ],
+      "answer": "global"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword evaluates a logical condition?",
+      "options":[
+        "check",
+        "match",
+        "if",
+        "when"
+      ],
+      "answer": "if"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword loads external modules into the current namespace?",
+      "options":[
+        "include",
+        "require",
+        "import",
+        "use"
+      ],
+      "answer": "import"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword tests membership within a collection?",
+      "options":[
+        "has",
+        "contains",
+        "in",
+        "inside"
+      ],
+      "answer": "in"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword tests whether two references point to the same memory object?",
+      "options":[
+        "==",
+        "is",
+        "equals",
+        "matches"
+      ],
+      "answer": "is"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword defines an anonymous inline function?",
+      "options":[
+        "inline",
+        "anon",
+        "lambda",
+        "func"
+      ],
+      "answer": "lambda"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword refers to the absence of a value or a null object?",
+      "options":[
+        "null",
+        "nil",
+        "None",
+        "void"
+      ],
+      "answer": "None"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword allows nested functions to modify variables in the enclosing scope?",
+      "options":[
+        "global",
+        "nonlocal",
+        "outer",
+        "parent"
+      ],
+      "answer": "nonlocal"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword reverses the truth value of an expression?",
+      "options":[
+        "invert",
+        "reverse",
+        "not",
+        "!"
+      ],
+      "answer": "not"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword acts as a logical operator that returns True if at least one statement is true?",
+      "options":[
+        "and",
+        "or",
+        "xor",
+        "any"
+      ],
+      "answer": "or"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword acts as a syntactic placeholder that does nothing?",
+      "options":[
+        "skip",
+        "null",
+        "pass",
+        "continue"
+      ],
+      "answer": "pass"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword manually triggers an exception?",
+      "options":[
+        "throw",
+        "raise",
+        "error",
+        "fail"
+      ],
+      "answer": "raise"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword sends a value back from a function to its caller?",
+      "options":[
+        "yield",
+        "send",
+        "return",
+        "output"
+      ],
+      "answer": "return"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword wraps code that might raise an error?",
+      "options":[
+        "catch",
+        "test",
+        "try",
+        "eval"
+      ],
+      "answer": "try"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword initiates a loop that runs as long as a condition is true?",
+      "options":[
+        "for",
+        "while",
+        "until",
+        "loop"
+      ],
+      "answer": "while"
+    },
+    {
+      "objective": "Keywords",
+      "question": "Which keyword wraps the execution of a block with methods defined by a context manager?",
+      "options":[
+        "use",
+        "manage",
+        "with",
+        "context"
+      ],
+      "answer": "with"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What is the standard implementation of the Python interpreter written in C?",
+      "options":[
+        "PyPy",
+        "CPython",
+        "Jython",
+        "IronPython"
+      ],
+      "answer": "CPython"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What does REPL stand for?",
+      "options":[
+        "Run Execute Parse Loop",
+        "Read Evaluate Print Loop",
+        "Return Exception Process Layer",
+        "Runtime Execution Python Link"
+      ],
+      "answer": "Read Evaluate Print Loop"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What is the acronym for the global lock that limits CPython to executing one thread at a time?",
+      "options":[
+        "GLL",
+        "GIL",
+        "GEL",
+        "GML"
+      ],
+      "answer": "GIL"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What is the process of embedding data inside a string using curly braces `{}`?",
+      "options":[
+        "String concatenation",
+        "String interpolation",
+        "String indexing",
+        "String slicing"
+      ],
+      "answer": "String interpolation"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What are special methods surrounded by double underscores called?",
+      "options":[
+        "Magic methods",
+        "Dunder methods",
+        "Both Magic and Dunder methods",
+        "Hidden methods"
+      ],
+      "answer": "Both Magic and Dunder methods"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What is a directory containing a `__init__.py` file formally called?",
+      "options":[
+        "Library",
+        "Package",
+        "Module",
+        "Namespace"
+      ],
+      "answer": "Package"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What is a single `.py` file containing Python code formally called?",
+      "options":[
+        "Package",
+        "Module",
+        "Class",
+        "Repository"
+      ],
+      "answer": "Module"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What allows a class to hide its internal state and require all interactions to occur through its methods?",
+      "options":[
+        "Inheritance",
+        "Polymorphism",
+        "Encapsulation",
+        "Abstraction"
+      ],
+      "answer": "Encapsulation"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What principle allows objects of different classes to be treated uniformly based on shared method names?",
+      "options":[
+        "Inheritance",
+        "Encapsulation",
+        "Polymorphism",
+        "Overloading"
+      ],
+      "answer": "Polymorphism"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What creates a local environment where variables names are bound to objects?",
+      "options":[
+        "Namespace",
+        "Reference",
+        "Pointer",
+        "Index"
+      ],
+      "answer": "Namespace"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What tool checks Python code for style errors based on PEP 8?",
+      "options":[
+        "Linter",
+        "Compiler",
+        "Debugger",
+        "Interpreter"
+      ],
+      "answer": "Linter"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What is the standard package installer for Python?",
+      "options":[
+        "npm",
+        "brew",
+        "apt",
+        "pip"
+      ],
+      "answer": "pip"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What defines the order of evaluating operators within an expression?",
+      "options":[
+        "MRO",
+        "Syntax",
+        "Precedence",
+        "Type Casting"
+      ],
+      "answer": "Precedence"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What kind of copy constructs a new collection object and then recursively populates it with copies of the child objects?",
+      "options":[
+        "Shallow copy",
+        "Deep copy",
+        "Reference copy",
+        "Soft copy"
+      ],
+      "answer": "Deep copy"
+    },
+    {
+      "objective": "Terminology",
+      "question": "What is an isolated environment allowing project-specific dependencies without modifying the system-wide Python installation?",
+      "options":[
+        "Docker Container",
+        "Virtual Environment",
+        "Subprocess",
+        "Sandbox"
+      ],
+      "answer": "Virtual Environment"
+    }
+  ]
+}
