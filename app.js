@@ -1,5 +1,6 @@
 const UI = {
     themeToggle: document.getElementById('theme-toggle'),
+    examSelect: document.getElementById('exam-select'),
     apiKeyInput: document.getElementById('api-key'),
     saveKeyBtn: document.getElementById('save-key-btn'),
     startBtn: document.getElementById('start-btn'),
@@ -66,15 +67,21 @@ function init() {
 }
 
 async function startStudyMode() {
+    const selectedExam = UI.examSelect.value;
+    const filename = `${selectedExam}.json`;
+
     try {
-        const res = await fetch('data.json');
+        const res = await fetch(filename);
+        if (!res.ok) {
+            throw new Error(`Failed to load ${filename}`);
+        }
         state.questions = await res.json();
         UI.totalQNum.textContent = state.questions.length;
         UI.configSection.classList.add('hidden');
         UI.quizSection.classList.remove('hidden');
         loadQuestion();
     } catch (err) {
-        alert("Could not load data.json. Ensure it is in the same directory and you are running a local server.");
+        alert(`Could not load ${filename}. Ensure the file exists in the directory and you are running a local server.`);
     }
 }
 
