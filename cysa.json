@@ -1,28 +1,1911 @@
-[
+{
+  "exam": "CompTIA CySA+ CS0-003",
+  "questions": [
     {
-        "id": "cysa-001",
-        "domain": "Threat and Vulnerability Management",
-        "question": "During a vulnerability scan, a report indicates that a web server is susceptible to a Cross-Site Scripting (XSS) attack. Which of the following is the BEST mitigation strategy?",
-        "options": [
-            "Implement a Web Application Firewall (WAF).",
-            "Ensure input validation and output encoding are configured in the application code.",
-            "Install an Intrusion Detection System (IDS) on the network segment.",
-            "Apply the latest operating system patches to the web server."
-        ],
-        "answer": 1,
-        "definition": "Input validation and output encoding ensure that user-supplied data is stripped of malicious scripts before being processed or displayed by the application. This addresses the root cause of XSS."
+      "objective": "1.1",
+      "question": "An organization wants to enforce security policies, detect shadow IT, and protect sensitive data across its various SaaS applications like Microsoft 365 and Salesforce. Which technology is best suited for this?",
+      "options": [
+        "Cloud access security broker (CASB)",
+        "Secure access secure edge (SASE)",
+        "Public key infrastructure (PKI)",
+        "Software-defined network (SDN)"
+      ],
+      "answer": "Cloud access security broker (CASB)"
     },
     {
-        "id": "cysa-002",
-        "domain": "Software and Systems Security",
-        "question": "A security analyst is reviewing logs and notices repeated failed login attempts to a service account from an unknown IP address outside of normal business hours. What type of attack is most likely occurring?",
-        "options": [
-            "Brute Force",
-            "SQL Injection",
-            "Pass the Hash",
-            "Phishing"
-        ],
-        "answer": 0,
-        "definition": "A brute force attack involves submitting many passwords or passphrases with the hope of eventually guessing correctly. Repeated failed logins from a single source strongly indicate this."
+      "objective": "1.1",
+      "question": "A development team is deploying a new web application where the cloud provider dynamically manages the allocation and provisioning of backend compute resources, allowing the developers to focus solely on writing code. Which infrastructure concept does this describe?",
+      "options": [
+        "Containerization",
+        "Virtualization",
+        "Serverless",
+        "On-premises"
+      ],
+      "answer": "Serverless"
+    },
+    {
+      "objective": "1.2",
+      "question": "A security analyst monitoring network traffic notices a device with an unknown MAC address communicating on the internal LAN. The device bypasses 802.1X authentication by spoofing a printer's MAC address. Which indicator of malicious activity is this?",
+      "options": [
+        "Rogue devices on the network",
+        "Irregular peer-to-peer communication",
+        "Beaconing",
+        "Unusual traffic spikes"
+      ],
+      "answer": "Rogue devices on the network"
+    },
+    {
+      "objective": "1.2",
+      "question": "During an investigation, an analyst discovers that a workstation has transferred 50 GB of compressed archive files to an unknown external cloud storage service at 2:00 AM. What host-related indicator of malicious activity is most likely occurring?",
+      "options": [
+        "Data exfiltration",
+        "Drive capacity consumption",
+        "Memory consumption",
+        "Unauthorized software"
+      ],
+      "answer": "Data exfiltration"
+    },
+    {
+      "objective": "1.3",
+      "question": "A Linux administrator needs to capture and analyze live network traffic passing through a server's eth0 interface from the command line to troubleshoot a suspected network attack. Which tool should they use?",
+      "options": [
+        "tcpdump",
+        "Cuckoo Sandbox",
+        "Metasploit Framework (MSF)",
+        "Security information and event management (SIEM)"
+      ],
+      "answer": "tcpdump"
+    },
+    {
+      "objective": "1.3",
+      "question": "An employee reports receiving a suspicious email that appears to come from the company's CEO. To verify the true origin of the email and the routing path it took across the internet, what should the analyst examine?",
+      "options": [
+        "Email header",
+        "Embedded links",
+        "File attachments",
+        "JavaScript Object Notation (JSON) logs"
+      ],
+      "answer": "Email header"
+    },
+    {
+      "objective": "1.4",
+      "question": "A financial institution wants to subscribe to a threat feed specifically tailored to the banking industry to receive timely updates on sector-specific cyber threats. Which intelligence source is most appropriate?",
+      "options": [
+        "Information sharing organizations",
+        "Social media",
+        "Hacktivist blogs",
+        "Deep/dark web forums"
+      ],
+      "answer": "Information sharing organizations"
+    },
+    {
+      "objective": "1.4",
+      "question": "When analyzing threat intelligence, which component describes the specific methods, tools, and operational patterns an adversary uses to compromise systems?",
+      "options": [
+        "Tactics, techniques, and procedures (TTP)",
+        "Confidence levels",
+        "Indicators of compromise (IOC)",
+        "Active defense"
+      ],
+      "answer": "Tactics, techniques, and procedures (TTP)"
+    },
+    {
+      "objective": "1.5",
+      "question": "A security team wants their intrusion detection system (IDS) to automatically trigger an alert message in a dedicated corporate chat channel whenever a critical vulnerability is exploited. Which technology integration method uses automated HTTP callbacks to achieve this real-time notification?",
+      "options": [
+        "Webhooks",
+        "Application programming interface (API)",
+        "Regular expressions",
+        "Standardized processes"
+      ],
+      "answer": "Webhooks"
+    },
+    {
+      "objective": "1.5",
+      "question": "A SOC utilizes a SOAR platform to automatically extract IP addresses from incoming phishing alerts and query them against multiple external reputation databases before presenting the alert to an analyst. What concept does this describe?",
+      "options": [
+        "Threat feed combination",
+        "System hardening",
+        "Log ingestion",
+        "Network segmentation"
+      ],
+      "answer": "Threat feed combination"
+    },
+    {
+      "objective": "1.1",
+      "question": "An organization wants to allow its employees to access a partner's web portal using their existing corporate credentials without creating new accounts. Which IAM concept best describes this capability?",
+      "options": [
+        "Single sign-on (SSO)",
+        "Federation",
+        "Privileged access management (PAM)",
+        "Passwordless"
+      ],
+      "answer": "Federation"
+    },
+    {
+      "objective": "1.1",
+      "question": "Which network architecture concept operates on the principle of 'never trust, always verify,' requiring continuous authentication and authorization regardless of a user's location relative to the corporate network?",
+      "options": [
+        "Network segmentation",
+        "Zero Trust",
+        "Software-defined network (SDN)",
+        "Secure access secure edge (SASE)"
+      ],
+      "answer": "Zero Trust"
+    },
+    {
+      "objective": "1.2",
+      "question": "A security analyst discovers an unknown executable set to run automatically at startup within the Windows HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run path. What type of indicator of malicious activity is this?",
+      "options": [
+        "Unauthorized scheduled tasks",
+        "Registry changes or anomalies",
+        "Abnormal OS process behavior",
+        "Drive capacity consumption"
+      ],
+      "answer": "Registry changes or anomalies"
+    },
+    {
+      "objective": "1.2",
+      "question": "While monitoring a web application, an analyst notices that a user input field is returning database error messages displaying table structures on the screen. What application-related indicator is occurring?",
+      "options": [
+        "Unexpected output",
+        "Service interruption",
+        "Introduction of new accounts",
+        "Unauthorized privileges"
+      ],
+      "answer": "Unexpected output"
+    },
+    {
+      "objective": "1.3",
+      "question": "An analyst detects suspicious traffic originating from an unknown external IP address. Which of the following tools should the analyst use to check if this IP has been recently reported for malicious activity?",
+      "options": [
+        "Wireshark",
+        "Metasploit Framework (MSF)",
+        "AbuseIPDB",
+        "Cuckoo Sandbox"
+      ],
+      "answer": "AbuseIPDB"
+    },
+    {
+      "objective": "1.3",
+      "question": "Which scripting or programming technique is best suited for an analyst to search through massive log files to find specific patterns, such as credit card numbers or IP addresses?",
+      "options": [
+        "Extensible Markup Language (XML)",
+        "Regular expressions",
+        "JavaScript Object Notation (JSON)",
+        "System hardening"
+      ],
+      "answer": "Regular expressions"
+    },
+    {
+      "objective": "1.4",
+      "question": "An employee accidentally uploads a file containing sensitive customer data to a public GitHub repository. How would this threat actor be classified?",
+      "options": [
+        "Hacktivist",
+        "Script kiddie",
+        "Unintentional insider threat",
+        "Advanced persistent threat (APT)"
+      ],
+      "answer": "Unintentional insider threat"
+    },
+    {
+      "objective": "1.4",
+      "question": "When establishing a threat hunting program, which of the following focus areas targets the most critical components necessary for the organization's survival?",
+      "options": [
+        "Business-critical assets and processes",
+        "Open source intelligence",
+        "Indicators of compromise (IOC)",
+        "Standardized processes"
+      ],
+      "answer": "Business-critical assets and processes"
+    },
+    {
+      "objective": "1.4",
+      "question": "A security operations team is searching for stolen corporate credentials that might be for sale by organized crime groups. Which threat intelligence source is most likely to contain this specific information?",
+      "options": [
+        "Government bulletins",
+        "Deep/dark web",
+        "Open source social media",
+        "Computer emergency response team (CERT)"
+      ],
+      "answer": "Deep/dark web"
+    },
+    {
+      "objective": "1.5",
+      "question": "When seeking to improve security operations efficiency, which types of tasks are the best candidates for automation?",
+      "options": [
+        "Complex tasks requiring significant human judgment",
+        "Tasks that occur rarely and unpredictably",
+        "Repeatable tasks that do not require human interaction",
+        "Tasks involving advanced persistent threat attribution"
+      ],
+      "answer": "Repeatable tasks that do not require human interaction"
+    },
+    {
+      "objective": "2.1",
+      "question": "A company has a large remote workforce whose laptops rarely connect to the corporate VPN. Which vulnerability scanning method is most reliable for ensuring these remote devices are consistently assessed without requiring constant network connectivity to the central scanner?",
+      "options": [
+        "Agent-based scanning",
+        "Agentless scanning",
+        "Passive discovery",
+        "Uncredentialed scanning"
+      ],
+      "answer": "Agent-based scanning"
+    },
+    {
+      "objective": "2.1",
+      "question": "Before conducting a comprehensive vulnerability scan, an analyst runs a ping sweep to identify which IP addresses currently have active hosts responding on the network. What vulnerability scanning concept does this represent?",
+      "options": [
+        "Device fingerprinting",
+        "Asset discovery",
+        "Fuzzing",
+        "Reverse engineering"
+      ],
+      "answer": "Asset discovery"
+    },
+    {
+      "objective": "2.2",
+      "question": "An analyst needs to perform a credentialed scan to identify missing operating system patches and misconfigurations on internal Windows servers. Which of the following tools is specifically categorized as a dedicated vulnerability scanner for this task?",
+      "options": [
+        "Nessus",
+        "Recon-ng",
+        "Immunity debugger",
+        "Maltego"
+      ],
+      "answer": "Nessus"
+    },
+    {
+      "objective": "2.2",
+      "question": "An organization wants to automate the discovery of common web application vulnerabilities, such as injection flaws and broken access control, by crawling the application and injecting test payloads. Which tool is best suited for this dynamic analysis?",
+      "options": [
+        "OpenVAS",
+        "Zed Attack Proxy (ZAP)",
+        "Angry IP Scanner",
+        "Nmap"
+      ],
+      "answer": "Zed Attack Proxy (ZAP)"
+    },
+    {
+      "objective": "2.3",
+      "question": "A newly published vulnerability has a CVSS base score of 9.8. However, the security team downgrades the internal priority of patching it because the affected server is located on an isolated, non-routable network segment with strict access controls. What prioritization factor did the team apply?",
+      "options": [
+        "Context awareness",
+        "Exploitability/weaponization",
+        "Asset value",
+        "True positive validation"
+      ],
+      "answer": "Context awareness"
+    },
+    {
+      "objective": "2.3",
+      "question": "When deciding which high-severity vulnerabilities to patch first during a limited maintenance window, an analyst prioritizes those that already have known, functional exploit modules available in the Metasploit Framework. Which prioritization concept does this rely on?",
+      "options": [
+        "Weaponization",
+        "Asset value",
+        "Zero-day classification",
+        "False negative reduction"
+      ],
+      "answer": "Weaponization"
+    },
+    {
+      "objective": "2.4",
+      "question": "A web application is found to be vulnerable to SQL injection because user input is directly concatenated into backend database queries. What is the most effective secure coding practice a developer should implement to remediate this flaw?",
+      "options": [
+        "Parameterized queries",
+        "Session management",
+        "Output encoding",
+        "Cross-site request forgery (CSRF) tokens"
+      ],
+      "answer": "Parameterized queries"
+    },
+    {
+      "objective": "2.4",
+      "question": "An attacker manipulates an HTTP request by changing the URL parameter `account_id=1001` to `account_id=1002`, successfully bypassing authorization checks and viewing another customer's billing information. What type of vulnerability is this?",
+      "options": [
+        "Broken access control",
+        "Directory traversal",
+        "Cross-site scripting (XSS)",
+        "Server-side request forgery (SSRF)"
+      ],
+      "answer": "Broken access control"
+    },
+    {
+      "objective": "2.5",
+      "question": "To identify potential security flaws and structural vulnerabilities before writing any code, a development team creates architecture diagrams to analyze data flows and trust boundaries. What secure software development life cycle (SDLC) practice is this?",
+      "options": [
+        "Threat modeling",
+        "Static application security testing (SAST)",
+        "Attack surface reduction",
+        "Penetration testing"
+      ],
+      "answer": "Threat modeling"
+    },
+    {
+      "objective": "2.5",
+      "question": "During a scheduled maintenance window, a critical security patch is applied to a database server. Immediately after restarting, the primary business application cannot connect to the database, halting operations. According to patch management best practices, what is the most appropriate next step?",
+      "options": [
+        "Initiate a rollback",
+        "Accept the risk",
+        "Perform a root cause analysis",
+        "Implement a compensating control"
+      ],
+      "answer": "Initiate a rollback"
+    },
+    {
+      "objective": "2.1",
+      "question": "An organization needs to assess the vulnerability of an isolated SCADA system operating on a factory floor. Due to the fragility of the legacy equipment, the assessment must not introduce any disruptive network traffic. Which scanning method is most appropriate?",
+      "options": [
+        "Active vulnerability scanning",
+        "Passive discovery",
+        "Credentialed agent-based scanning",
+        "Dynamic application security testing (DAST)"
+      ],
+      "answer": "Passive discovery"
+    },
+    {
+      "objective": "2.1",
+      "question": "To comply with industry standards, a security engineer configures a vulnerability scanner to check all Windows endpoints to ensure they meet the Center for Internet Security (CIS) benchmarks. What type of scanning is this?",
+      "options": [
+        "Security baseline scanning",
+        "Device fingerprinting",
+        "Fuzzing",
+        "Reverse engineering"
+      ],
+      "answer": "Security baseline scanning"
+    },
+    {
+      "objective": "2.2",
+      "question": "A security analyst is tasked with auditing an AWS environment for misconfigurations, excessive permissions, and security best practices. Which of the following tools is specifically designed for cloud infrastructure assessment?",
+      "options": [
+        "Scout Suite",
+        "Nikto",
+        "OpenVAS",
+        "GNU debugger (GDB)"
+      ],
+      "answer": "Scout Suite"
+    },
+    {
+      "objective": "2.2",
+      "question": "While performing a web application vulnerability assessment, an analyst needs a tool to intercept, inspect, and modify HTTP requests sent between the browser and the web server. Which tool should they use?",
+      "options": [
+        "Maltego",
+        "Burp Suite",
+        "Angry IP Scanner",
+        "Nessus"
+      ],
+      "answer": "Burp Suite"
+    },
+    {
+      "objective": "2.3",
+      "question": "A vulnerability scanner reports a high-severity remote code execution vulnerability on a server. However, upon manual inspection, the analyst discovers the specific vulnerable service is disabled and the required port is blocked by the host firewall. How should the analyst classify this scanner finding?",
+      "options": [
+        "True positive",
+        "True negative",
+        "False positive",
+        "False negative"
+      ],
+      "answer": "False positive"
+    },
+    {
+      "objective": "2.3",
+      "question": "When interpreting a Common Vulnerability Scoring System (CVSS) score, which metric evaluates the conditions beyond the attacker's control that must exist to successfully exploit the vulnerability?",
+      "options": [
+        "Attack complexity",
+        "Privileges required",
+        "Impact",
+        "Scope"
+      ],
+      "answer": "Attack complexity"
+    },
+    {
+      "objective": "2.4",
+      "question": "An application allows users to upload profile pictures but fails to verify the file content or extension, allowing an attacker to upload and execute a malicious PHP script on the web server. Which vulnerability does this represent?",
+      "options": [
+        "Cross-site request forgery (CSRF)",
+        "Directory traversal",
+        "Remote code execution (RCE)",
+        "Server-side request forgery (SSRF)"
+      ],
+      "answer": "Remote code execution (RCE)"
+    },
+    {
+      "objective": "2.4",
+      "question": "To prevent cross-site scripting (XSS) attacks in a web application, which secure coding best practice should a developer implement to neutralize potentially malicious user-supplied data before it is rendered in the browser?",
+      "options": [
+        "Parameterized queries",
+        "Output encoding",
+        "Session management",
+        "Input validation"
+      ],
+      "answer": "Output encoding"
+    },
+    {
+      "objective": "2.5",
+      "question": "A critical vulnerability is discovered in an organization's core database system. Applying the patch immediately would disrupt a critical business process. The organization decides to wait until the scheduled maintenance window while deploying a strict firewall rule to block known exploit signatures. What is the firewall rule an example of?",
+      "options": [
+        "Risk transfer",
+        "Compensating control",
+        "Bug bounty",
+        "Exception management"
+      ],
+      "answer": "Compensating control"
+    },
+    {
+      "objective": "2.5",
+      "question": "An organization decides to purchase cybersecurity insurance to cover potential financial losses, legal fees, and customer notification costs resulting from a potential data breach. Which risk management principle is the organization applying?",
+      "options": [
+        "Mitigate",
+        "Avoid",
+        "Accept",
+        "Transfer"
+      ],
+      "answer": "Transfer"
+    },
+    {
+      "objective": "3.1",
+      "question": "An attacker creates a malicious PDF document containing a zero-day exploit and emails it to a company executive. In the cyber kill chain methodology, which phase does the act of emailing the PDF represent?",
+      "options": [
+        "Weaponization",
+        "Exploitation",
+        "Installation",
+        "Delivery"
+      ],
+      "answer": "Delivery"
+    },
+    {
+      "objective": "3.1",
+      "question": "A security analyst is developing a methodology specifically for assessing the security posture of the organization's custom-built external web applications. Which framework provides the most relevant guidance for this specific task?",
+      "options": [
+        "OSSTMM",
+        "Diamond Model of Intrusion Analysis",
+        "OWASP Testing Guide",
+        "Cyber kill chain"
+      ],
+      "answer": "OWASP Testing Guide"
+    },
+    {
+      "objective": "3.1",
+      "question": "A penetration testing firm is hired to conduct a comprehensive security assessment. The client requires a scientifically sound, quantifiable methodology that measures operational security across physical, human, and telecommunications domains. Which framework fits this requirement?",
+      "options": [
+        "MITRE ATT&CK",
+        "Open Source Security Testing Methodology Manual (OSSTMM)",
+        "Diamond Model of Intrusion Analysis",
+        "Cyber kill chain"
+      ],
+      "answer": "Open Source Security Testing Methodology Manual (OSSTMM)"
+    },
+    {
+      "objective": "3.2",
+      "question": "An analyst is reviewing SIEM alerts and notices a series of failed login attempts followed by a successful login from a foreign IP address at 3:00 AM. The analyst begins querying logs to investigate the user's subsequent actions. Which phase of the incident response process does this activity fall under?",
+      "options": [
+        "Detection and analysis",
+        "Containment",
+        "Eradication",
+        "Post-incident activity"
+      ],
+      "answer": "Detection and analysis"
+    },
+    {
+      "objective": "3.2",
+      "question": "Before deciding on a containment strategy for a rapidly spreading worm, the incident response team analyzes network flow logs to determine exactly how many subnets and hosts have already been infected. Which incident response activity are they performing?",
+      "options": [
+        "Validating data integrity",
+        "Eradication",
+        "Legal hold preservation",
+        "Determining the scope"
+      ],
+      "answer": "Determining the scope"
+    },
+    {
+      "objective": "3.2",
+      "question": "A server is suspected of hosting a cryptocurrency miner. To prevent it from communicating with the external mining pool while still allowing analysts to connect via a secure management console for investigation, the network team moves the server to a restricted VLAN. Which action is this?",
+      "options": [
+        "Isolation",
+        "Remediation",
+        "Eradication",
+        "Legal hold"
+      ],
+      "answer": "Isolation"
+    },
+    {
+      "objective": "3.2",
+      "question": "A workstation has been compromised with a kernel-level rootkit that has deeply embedded itself into the operating system. To ensure the threat is completely eradicated and the system is safe to return to production, what is the most appropriate action?",
+      "options": [
+        "Apply a compensating control",
+        "Re-image the system",
+        "Isolate the system on a VLAN",
+        "Place a legal hold on the hard drive"
+      ],
+      "answer": "Re-image the system"
+    },
+    {
+      "objective": "3.3",
+      "question": "A severe ransomware attack has encrypted an organization's primary data center, rendering all services unavailable. The incident response team decides to failover operations to a secondary, geographically distant site to keep the business running. Which element of the preparation phase enabled this capability?",
+      "options": [
+        "Business continuity (BC)/disaster recovery (DR)",
+        "Playbooks",
+        "Tabletop exercises",
+        "Root cause analysis"
+      ],
+      "answer": "Business continuity (BC)/disaster recovery (DR)"
+    },
+    {
+      "objective": "3.3",
+      "question": "The organization mandates that all newly hired SOC analysts complete a 40-hour course on utilizing the company's specific SIEM and EDR platforms before they are allowed to handle live alerts. Which element of the preparation phase does this represent?",
+      "options": [
+        "Tabletop",
+        "Incident response plan development",
+        "Training",
+        "Tool integration"
+      ],
+      "answer": "Training"
+    },
+    {
+      "objective": "3.3",
+      "question": "Following a data exfiltration incident involving an insider threat, a security specialist is examining a bit-by-bit copy of the suspect's hard drive using specialized software to recover deleted files and analyze the master file table (MFT). Which post-incident activity is this?",
+      "options": [
+        "Root cause analysis",
+        "Forensic analysis",
+        "Lessons learned",
+        "Tabletop"
+      ],
+      "answer": "Forensic analysis"
+    },
+    {
+      "objective": "3.1",
+      "question": "Which attack methodology framework focuses heavily on analyzing the relationships between the adversary, capability, infrastructure, and victim?",
+      "options": [
+        "MITRE ATT&CK",
+        "Cyber kill chain",
+        "Diamond Model of Intrusion Analysis",
+        "OSSTMM"
+      ],
+      "answer": "Diamond Model of Intrusion Analysis"
+    },
+    {
+      "objective": "3.1",
+      "question": "An incident response team is mapping a recent breach to identify the specific tactics, techniques, and procedures (TTPs) used by the threat actor. Which of the following frameworks is best suited for this task?",
+      "options": [
+        "OWASP Testing Guide",
+        "MITRE ATT&CK",
+        "OSSTMM",
+        "Cyber kill chain"
+      ],
+      "answer": "MITRE ATT&CK"
+    },
+    {
+      "objective": "3.2",
+      "question": "During an investigation, an analyst must ensure that the timeline, handling, and transfer of digital evidence are meticulously documented to guarantee its admissibility in court. What is this process called?",
+      "options": [
+        "Validating data integrity",
+        "Legal hold",
+        "Forensic analysis",
+        "Chain of custody"
+      ],
+      "answer": "Chain of custody"
+    },
+    {
+      "objective": "3.2",
+      "question": "After acquiring an image of a compromised hard drive, what should the security analyst do immediately to prove the image has not been altered during the investigation?",
+      "options": [
+        "Isolate the system",
+        "Generate a cryptographic hash of the image",
+        "Place a legal hold on the device",
+        "Re-image the system"
+      ],
+      "answer": "Generate a cryptographic hash of the image"
+    },
+    {
+      "objective": "3.2",
+      "question": "A server is found to be actively communicating with a known command and control (C2) server. According to standard incident response procedures, what is the most appropriate immediate action to take?",
+      "options": [
+        "Re-image the server immediately",
+        "Conduct a root cause analysis",
+        "Isolate the server from the network",
+        "Delete the malicious executable"
+      ],
+      "answer": "Isolate the server from the network"
+    },
+    {
+      "objective": "3.2",
+      "question": "An organization anticipates litigation following a major data breach. The legal team instructs the IT department to securely preserve all current and future emails related to the incident, overriding standard retention policies. What is this called?",
+      "options": [
+        "Legal hold",
+        "Compensating control",
+        "Eradication",
+        "Chain of custody"
+      ],
+      "answer": "Legal hold"
+    },
+    {
+      "objective": "3.3",
+      "question": "To prepare for a potential ransomware attack, the security team and key business stakeholders gather in a conference room to verbally walk through the incident response plan using a hypothetical scenario. What type of activity is this?",
+      "options": [
+        "Disaster recovery drill",
+        "Tabletop",
+        "Playbook testing",
+        "Root cause analysis"
+      ],
+      "answer": "Tabletop"
+    },
+    {
+      "objective": "3.3",
+      "question": "Which of the following documents provides a security operations center (SOC) analyst with a step-by-step guide or checklist for responding to a specific type of incident, such as a phishing attack?",
+      "options": [
+        "Business continuity plan",
+        "Lessons learned report",
+        "Incident response plan",
+        "Playbooks"
+      ],
+      "answer": "Playbooks"
+    },
+    {
+      "objective": "3.3",
+      "question": "What is the primary objective of the 'lessons learned' activity during the post-incident phase of the incident management life cycle?",
+      "options": [
+        "To acquire forensic evidence for law enforcement",
+        "To improve future incident response processes and update plans",
+        "To identify the threat actor's initial access vector",
+        "To isolate the affected systems from the network"
+      ],
+      "answer": "To improve future incident response processes and update plans"
+    },
+    {
+      "objective": "3.3",
+      "question": "After successfully containing and eradicating a malware infection, the security team conducts a detailed investigation to determine exactly how the malware originally entered the network. This specific activity is known as:",
+      "options": [
+        "Root cause analysis",
+        "Scope and impact assessment",
+        "Legal hold preservation",
+        "Business impact analysis"
+      ],
+      "answer": "Root cause analysis"
+    },
+    {
+      "objective": "4.1",
+      "question": "A security team recommends patching a critical vulnerability on a manufacturing server, but the plant manager refuses because any downtime will halt production and cause significant financial loss. What inhibitor to remediation does this represent?",
+      "options": [
+        "Service-level agreement (SLA)",
+        "Business process interruption",
+        "Changing business requirements",
+        "Memorandum of understanding (MOU)"
+      ],
+      "answer": "Business process interruption"
+    },
+    {
+      "objective": "4.1",
+      "question": "When generating a vulnerability management report for the IT operations team, which attribute is most critical for them to know exactly which machines require immediate patching?",
+      "options": [
+        "Inhibitors to remediation",
+        "Affected hosts",
+        "Compliance reports",
+        "Service-level agreements (SLAs)"
+      ],
+      "answer": "Affected hosts"
+    },
+    {
+      "objective": "4.1",
+      "question": "A security scan cannot accurately assess a custom-built, heavily locked-down application used by the finance department, and the vendor refuses to allow third-party patching. What inhibitor to remediation does this represent?",
+      "options": [
+        "Proprietary systems",
+        "Service-level agreement (SLA)",
+        "Legacy systems",
+        "Organizational governance"
+      ],
+      "answer": "Proprietary systems"
+    },
+    {
+      "objective": "4.1",
+      "question": "To demonstrate to the executive board that the organization's patch management program is improving over time, which vulnerability management metric is most effective to include in the quarterly report?",
+      "options": [
+        "Top 10",
+        "Action plans",
+        "Trends",
+        "Inhibitors to remediation"
+      ],
+      "answer": "Trends"
+    },
+    {
+      "objective": "4.1",
+      "question": "A vulnerability report highlights a high susceptibility to social engineering attacks among the marketing staff based on a recent simulated phishing campaign. Which of the following should be included in the action plan to directly address this specific vulnerability?",
+      "options": [
+        "Configuration management",
+        "Compensating controls",
+        "Awareness, education, and training",
+        "Changing business requirements"
+      ],
+      "answer": "Awareness, education, and training"
+    },
+    {
+      "objective": "4.1",
+      "question": "After a vulnerability scan reveals that numerous internal servers are using weak default administrative passwords, the security team creates an action plan to enforce centralized password policies via Group Policy Objects (GPOs). Which part of the action plan does this represent?",
+      "options": [
+        "Compliance reports",
+        "Service-level objectives (SLOs)",
+        "Configuration management",
+        "Organizational governance"
+      ],
+      "answer": "Configuration management"
+    },
+    {
+      "objective": "4.2",
+      "question": "In an incident response report, which section specifically details the number of systems compromised, the types of data exposed, and the overall business interruption caused by the attack?",
+      "options": [
+        "Impact",
+        "Recommendations",
+        "Timeline",
+        "Evidence"
+      ],
+      "answer": "Impact"
+    },
+    {
+      "objective": "4.2",
+      "question": "Which section of an incident response report provides actionable steps and strategic improvements the organization should implement to prevent a similar breach from occurring in the future?",
+      "options": [
+        "Executive summary",
+        "Recommendations",
+        "Evidence",
+        "Timeline"
+      ],
+      "answer": "Recommendations"
+    },
+    {
+      "objective": "4.2",
+      "question": "During a severe incident involving the theft of intellectual property by an organized crime syndicate, the legal team advises the incident response manager to share specific forensic evidence with an external entity for investigation. Which stakeholder is most likely receiving this communication?",
+      "options": [
+        "Public relations",
+        "Law enforcement",
+        "Media",
+        "Customer communication"
+      ],
+      "answer": "Law enforcement"
+    },
+    {
+      "objective": "4.2",
+      "question": "A SOC tracks a key performance indicator (KPI) that measures the average amount of time it takes for the team to fully eradicate a threat and restore the affected systems to normal operations after an alert is verified. Which metric is this?",
+      "options": [
+        "Mean time to respond",
+        "Mean time to remediate",
+        "Mean time to detect",
+        "Alert volume"
+      ],
+      "answer": "Mean time to remediate"
+    },
+    {
+      "objective": "4.2",
+      "question": "A security manager is analyzing SOC performance and notices a high rate of analyst burnout and missed critical incidents. To investigate if the analysts are simply overwhelmed by the number of events, which metric should the manager review?",
+      "options": [
+        "Alert volume",
+        "Mean time to detect",
+        "Mean time to respond",
+        "Root cause analysis"
+      ],
+      "answer": "Alert volume"
+    },
+    {
+      "objective": "4.1",
+      "question": "A monthly vulnerability report shows that the exact same cross-site scripting (XSS) vulnerability has reappeared on the company's main website three times in the past year despite previous patches. Which aspect of the vulnerability management report highlights this issue?",
+      "options": [
+        "Risk score",
+        "Affected hosts",
+        "Recurrence",
+        "Prioritization"
+      ],
+      "answer": "Recurrence"
+    },
+    {
+      "objective": "4.1",
+      "question": "An organization discovers a vulnerability in a legacy system that can no longer receive vendor patches. The security team decides to isolate the system on its own network segment and strictly limit access. In a vulnerability action plan, what is this an example of?",
+      "options": [
+        "Configuration management",
+        "Compensating controls",
+        "Organizational governance",
+        "Compliance reporting"
+      ],
+      "answer": "Compensating controls"
+    },
+    {
+      "objective": "4.1",
+      "question": "To effectively communicate the most pressing security threats to the executive board without overwhelming them with data, which vulnerability management metric is most appropriate to present?",
+      "options": [
+        "A comprehensive list of all affected hosts",
+        "Top 10 critical vulnerabilities",
+        "Service-level objectives (SLOs)",
+        "Detailed patching action plans"
+      ],
+      "answer": "Top 10 critical vulnerabilities"
+    },
+    {
+      "objective": "4.1",
+      "question": "A third-party managed service provider (MSP) states they cannot apply a required security patch within the 24-hour timeframe requested by the client, citing that their contract guarantees a 72-hour patch window. What inhibitor to remediation does this represent?",
+      "options": [
+        "Legacy systems",
+        "Proprietary systems",
+        "Service-level agreement (SLA)",
+        "Degrading functionality"
+      ],
+      "answer": "Service-level agreement (SLA)"
+    },
+    {
+      "objective": "4.2",
+      "question": "Following a major data breach, the Chief Information Security Officer (CISO) needs a high-level overview of the incident to present to the CEO and the board of directors. Which component of the incident response report is designed for this audience?",
+      "options": [
+        "Timeline",
+        "Evidence log",
+        "Executive summary",
+        "Root cause analysis"
+      ],
+      "answer": "Executive summary"
+    },
+    {
+      "objective": "4.2",
+      "question": "During a high-profile ransomware attack that has leaked customer data, who should be primarily responsible for drafting and reviewing the statements sent to the press to ensure brand protection and minimize legal liability?",
+      "options": [
+        "The incident response lead",
+        "Public relations and legal teams",
+        "The SOC analysts",
+        "The system administrators"
+      ],
+      "answer": "Public relations and legal teams"
+    },
+    {
+      "objective": "4.2",
+      "question": "A healthcare institution suffers a breach involving personally identifiable information (PII). The organization is legally required to notify the appropriate government oversight bodies within a specific timeframe. What type of communication is this?",
+      "options": [
+        "Executive summary",
+        "Public relations",
+        "Regulatory reporting",
+        "Internal incident declaration"
+      ],
+      "answer": "Regulatory reporting"
+    },
+    {
+      "objective": "4.2",
+      "question": "A SOC manager is reviewing key performance indicators (KPIs) and notices that, on average, it takes 45 days for the team to identify that a network intrusion has occurred. Which incident response metric is the manager evaluating?",
+      "options": [
+        "Mean time to respond",
+        "Mean time to remediate",
+        "Alert volume",
+        "Mean time to detect"
+      ],
+      "answer": "Mean time to detect"
+    },
+    {
+      "objective": "4.2",
+      "question": "A Tier 1 analyst receives an alert for a suspected ransomware infection. Following the playbook, the analyst confirms the infection and immediately notifies the incident response team lead and the IT director to begin containment. What process has the analyst just performed?",
+      "options": [
+        "Root cause analysis",
+        "Incident declaration and escalation",
+        "Scope and impact assessment",
+        "Lessons learned"
+      ],
+      "answer": "Incident declaration and escalation"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym ACL stand for?",
+      "options": ["Access Control List", "Authentication Control Link", "Account Command Level", "Access Connection Log"],
+      "answer": "Access Control List"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym API stand for?",
+      "options": ["Automated Program Interface", "Application Programming Interface", "Advanced Protocol Integration", "Application Process Indicator"],
+      "answer": "Application Programming Interface"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym APT stand for?",
+      "options": ["Advanced Persistent Threat", "Automated Protocol Testing", "Asynchronous Packet Transfer", "Applied Private Technology"],
+      "answer": "Advanced Persistent Threat"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym ARP stand for?",
+      "options": ["Address Resolution Protocol", "Advanced Routing Protocol", "Access Recovery Port", "Asymmetric Remote Processing"],
+      "answer": "Address Resolution Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym ASVS stand for?",
+      "options": ["Application Security Verification Standard", "Automated System Vulnerability Scanner", "Advanced Security Validation Suite", "Authentication Service Verification System"],
+      "answer": "Application Security Verification Standard"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym ATT&CK stand for?",
+      "options": ["Automated Threat Tactics & Cyber Knowledge", "Advanced Threat Techniques & Core Knowledge", "Adversarial Tactics, Techniques, and Common Knowledge", "Analytical Tool for Tactics & Command Knowledge"],
+      "answer": "Adversarial Tactics, Techniques, and Common Knowledge"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym AV stand for?",
+      "options": ["Antivirus", "Access Vector", "Authentication Verification", "Address Validation"],
+      "answer": "Antivirus"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym BC stand for?",
+      "options": ["Boundary Control", "Business Continuity", "Backup Configuration", "Binary Compiler"],
+      "answer": "Business Continuity"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym BCP stand for?",
+      "options": ["Binary Code Protocol", "Business Continuity Plan", "Backup Connection Process", "Boundary Control Policy"],
+      "answer": "Business Continuity Plan"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym BEAST stand for?",
+      "options": ["Binary Encryption and System Testing", "Browser Exploit Against SSL/TLS", "Border Edge Automated Security Tool", "Buffered Encryption and Secure Transfer"],
+      "answer": "Browser Exploit Against SSL/TLS"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym BGP stand for?",
+      "options": ["Border Gateway Protocol", "Binary Gateway Path", "Base Grid Protocol", "Broadband Gateway Port"],
+      "answer": "Border Gateway Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym BIA stand for?",
+      "options": ["Binary Information Analysis", "Business Impact Analysis", "Boundary Integrity Assessment", "Base Infrastructure Architecture"],
+      "answer": "Business Impact Analysis"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym BIOS stand for?",
+      "options": ["Basic Input/Output System", "Binary Input Operating System", "Boundary Interface Operating Standard", "Basic Internal Output Software"],
+      "answer": "Basic Input/Output System"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym BREACH stand for?",
+      "options": ["Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext", "Binary Remote Exploit and Cipher Hacking", "Border Reconnaissance and Encrypted Access Channel", "Buffered Remote Exfiltration and Compression of Host-data"],
+      "answer": "Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym C2 stand for?",
+      "options": ["Command and Control", "Cyber Correction", "Cipher Channel", "Cloud Configuration"],
+      "answer": "Command and Control"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CA stand for?",
+      "options": ["Cipher Authority", "Certificate Authority", "Cyber Analyst", "Configuration Audit"],
+      "answer": "Certificate Authority"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CASB stand for?",
+      "options": ["Cloud Access Security Broker", "Cipher Access Security Boundary", "Centralized Authentication Security Board", "Cloud Automated Security Backup"],
+      "answer": "Cloud Access Security Broker"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CBC stand for?",
+      "options": ["Cipher Block Chain", "Cipher Backup Code", "Centralized Binary Compiler", "Command Backup Center"],
+      "answer": "Cipher Block Chain"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CDN stand for?",
+      "options": ["Cloud Delivery Network", "Content Delivery Network", "Cipher Data Node", "Centralized Data Network"],
+      "answer": "Content Delivery Network"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CERT stand for?",
+      "options": ["Computer Emergency Response Team", "Cyber Encryption and Recovery Taskforce", "Centralized Error Reporting Tool", "Cipher Emergency Readiness Team"],
+      "answer": "Computer Emergency Response Team"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CHD stand for?",
+      "options": ["Cardholder Data", "Cyber Hazard Detection", "Centralized Host Directory", "Cipher Hash Descriptor"],
+      "answer": "Cardholder Data"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CI/CD stand for?",
+      "options": ["Continuous Integration and Continuous Delivery", "Centralized Infrastructure and Cloud Deployment", "Cyber Intelligence and Cipher Defense", "Continuous Inspection and Critical Development"],
+      "answer": "Continuous Integration and Continuous Delivery"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CIS stand for?",
+      "options": ["Center for Internet Security", "Cyber Intelligence Standard", "Cloud Infrastructure Security", "Centralized Information System"],
+      "answer": "Center for Internet Security"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CMS stand for?",
+      "options": ["Content Management System", "Cipher Management Standard", "Cloud Monitoring Software", "Centralized Metadata Server"],
+      "answer": "Content Management System"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym COBIT stand for?",
+      "options": ["Control Objectives for Information and Related Technologies", "Centralized Operations for Binary Integrated Tasks", "Cyber Operations Board for Information Testing", "Core Objectives for Binary and Internet Technologies"],
+      "answer": "Control Objectives for Information and Related Technologies"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CPU stand for?",
+      "options": ["Central Processing Unit", "Centralized Program Utility", "Cloud Processing Unit", "Core Program Unit"],
+      "answer": "Central Processing Unit"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CSF stand for?",
+      "options": ["Cybersecurity Framework", "Cipher Security Folder", "Cloud Security Facility", "Centralized Scanning Function"],
+      "answer": "Cybersecurity Framework"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CSIRT stand for?",
+      "options": ["Cybersecurity Incident Response Team", "Cipher Security and Intelligence Response Team", "Cloud Storage and Information Recovery Taskforce", "Centralized System Integrity and Recovery Team"],
+      "answer": "Cybersecurity Incident Response Team"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CSRF stand for?",
+      "options": ["Cross-site Request Forgery", "Cipher Security Response Function", "Cloud System Recovery Framework", "Centralized Server Request Filter"],
+      "answer": "Cross-site Request Forgery"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CVE stand for?",
+      "options": ["Common Vulnerabilities and Exposures", "Cyber Validation Engine", "Cloud Vulnerability Evaluation", "Centralized Vulnerability Entry"],
+      "answer": "Common Vulnerabilities and Exposures"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym CVSS stand for?",
+      "options": ["Common Vulnerability Scoring System", "Cyber Validation Security Standard", "Cloud Vulnerability Scanning Suite", "Centralized Vector Security Score"],
+      "answer": "Common Vulnerability Scoring System"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym DAST stand for?",
+      "options": ["Dynamic Application Security Testing", "Data Analysis and Security Tracking", "Dynamic Access Security Tool", "Digital Asset Scanning Technique"],
+      "answer": "Dynamic Application Security Testing"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym DDoS stand for?",
+      "options": ["Distributed Denial of Service", "Direct Digital Operating System", "Distributed Data Output Standard", "Digital Data over Satellite"],
+      "answer": "Distributed Denial of Service"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym DEP stand for?",
+      "options": ["Data Execution Prevention", "Digital Encryption Protocol", "Dynamic Endpoint Protection", "Data Entry Port"],
+      "answer": "Data Execution Prevention"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym DHCP stand for?",
+      "options": ["Dynamic Host Configuration Protocol", "Digital Host Connection Port", "Data Handling and Cipher Process", "Dynamic Hypertext Connection Protocol"],
+      "answer": "Dynamic Host Configuration Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym DKIM stand for?",
+      "options": ["DomainKeys Identified Mail", "Data Key Infrastructure Management", "Digital Kernel Integrity Monitor", "Domain Key Integration Method"],
+      "answer": "DomainKeys Identified Mail"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym DLL stand for?",
+      "options": ["Dynamic Link Library", "Data Layer Logic", "Digital Logic Level", "Domain Link Location"],
+      "answer": "Dynamic Link Library"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym DLP stand for?",
+      "options": ["Data Loss Prevention", "Digital Layer Protocol", "Dynamic Loop Protection", "Data Logging Process"],
+      "answer": "Data Loss Prevention"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym DMARC stand for?",
+      "options": ["Domain-based Message Authentication, Reporting, and Conformance", "Digital Message Access and Recovery Control", "Domain Monitoring and Response Center", "Data Management and Reporting Center"],
+      "answer": "Domain-based Message Authentication, Reporting, and Conformance"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym DNS stand for?",
+      "options": ["Domain Name Service", "Digital Network Security", "Data Node Standard", "Dynamic Network Server"],
+      "answer": "Domain Name Service"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym DoH stand for?",
+      "options": ["DNS over HTTPS", "Data over HTTP", "Digital Output Handling", "Domain over Host"],
+      "answer": "DNS over HTTPS"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym DoS stand for?",
+      "options": ["Denial of Service", "Digital operating System", "Data over Storage", "Direct output Socket"],
+      "answer": "Denial of Service"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym DR stand for?",
+      "options": ["Disaster Recovery", "Data Redundancy", "Digital Recording", "Dynamic Routing"],
+      "answer": "Disaster Recovery"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym EDR stand for?",
+      "options": ["Endpoint Detection and Response", "Encrypted Data Recovery", "Enhanced Digital Routing", "Electronic Data Recording"],
+      "answer": "Endpoint Detection and Response"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym EOF stand for?",
+      "options": ["End-of-file", "End-of-function", "Entry-on-file", "External-output-facility"],
+      "answer": "End-of-file"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym FIM stand for?",
+      "options": ["File Integrity Monitoring", "Fault Information Management", "Functional Interface Monitor", "File Inventory Module"],
+      "answer": "File Integrity Monitoring"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym FTK stand for?",
+      "options": ["Forensic Toolkit", "File Transfer Key", "Functional Test Kit", "File Type Kernel"],
+      "answer": "Forensic Toolkit"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym FTP stand for?",
+      "options": ["File Transfer Protocol", "File Transmission Port", "Functional Test Protocol", "Formal Transfer Process"],
+      "answer": "File Transfer Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym GDB stand for?",
+      "options": ["GNU Debugger", "Global Database", "Generic Data Block", "Graphical Debugger"],
+      "answer": "GNU Debugger"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym GPG stand for?",
+      "options": ["GNU Privacy Guard", "Global Privacy Group", "Generic Privacy Gateway", "Graphical Privacy Generator"],
+      "answer": "GNU Privacy Guard"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym GPO stand for?",
+      "options": ["Group Policy Objects", "Global Privacy Office", "General Protocol Operation", "Gateway Port Option"],
+      "answer": "Group Policy Objects"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym HIDS stand for?",
+      "options": ["Host-based Intrusion Detection System", "Hyper-Integrated Defense System", "Heuristic Intrusion Discovery Service", "Hardware Interface Detection Suite"],
+      "answer": "Host-based Intrusion Detection System"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym HIPS stand for?",
+      "options": ["Host-based Intrusion Prevention System", "Host-based Integrity Protection Suite", "Hyper-Interface Protection Service", "Hardware Instruction Prevention System"],
+      "answer": "Host-based Intrusion Prevention System"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym HTML stand for?",
+      "options": ["Hypertext Markup Language", "Host Target Management Link", "High Transmission Media Layer", "Hyper-Text Metadata List"],
+      "answer": "Hypertext Markup Language"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym HTTP stand for?",
+      "options": ["Hypertext Transfer Protocol", "High Tension Transfer Port", "Host Targeted Transport Protocol", "Hyper-Text Telecommunications Port"],
+      "answer": "Hypertext Transfer Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym HTTPS stand for?",
+      "options": ["Hypertext Transfer Protocol Secure", "Hypertext Transfer Protocol Standard", "Host-to-Terminal Private Server", "High Throughput Transport Suite"],
+      "answer": "Hypertext Transfer Protocol Secure"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym IaaS stand for?",
+      "options": ["Infrastructure as a Service", "Identity as a Service", "Information as a System", "Internal access as a Service"],
+      "answer": "Infrastructure as a Service"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym IAM stand for?",
+      "options": ["Identity and Access Management", "Internal Authentication Method", "Infrastructure Audit Metric", "Identity and Authorization Module"],
+      "answer": "Identity and Access Management"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym ICMP stand for?",
+      "options": ["Internet Control Message Protocol", "Integrated Control Management Protocol", "Internal Command Monitoring Port", "Internet Connection Messaging Port"],
+      "answer": "Internet Control Message Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym ICS stand for?",
+      "options": ["Industrial Control Systems", "Integrated Cloud Security", "Infrastructure Command Suite", "Internal Communication Standard"],
+      "answer": "Industrial Control Systems"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym IDOR stand for?",
+      "options": ["Insecure Direct Object Reference", "Internal Data Output Registry", "Integrated Domain Object Record", "Identity Dependency on Remote-host"],
+      "answer": "Insecure Direct Object Reference"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym IDS stand for?",
+      "options": ["Intrusion Detection System", "Information Delivery Service", "Internal Defense System", "Identity Directory Service"],
+      "answer": "Intrusion Detection System"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym IIS stand for?",
+      "options": ["Internet Information Services", "Internal Infrastructure Security", "Integrated Information Suite", "Internet Interface Standard"],
+      "answer": "Internet Information Services"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym IOC stand for?",
+      "options": ["Indicators of Compromise", "Internal Operations Control", "Infrastructure on Cloud", "Initial Operational Capacity"],
+      "answer": "Indicators of Compromise"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym IP stand for?",
+      "options": ["Internet Protocol", "Internal Process", "Information Provider", "Identification Port"],
+      "answer": "Internet Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym IPS stand for?",
+      "options": ["Intrusion Prevention System", "Internal Processing Standard", "Internet Provider Service", "Integrated Protection Suite"],
+      "answer": "Intrusion Prevention System"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym IR stand for?",
+      "options": ["Incident Response", "Information Recovery", "Internal Registry", "Identity Record"],
+      "answer": "Incident Response"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym ISO stand for?",
+      "options": ["International Organization for Standardization", "Integrated System Operations", "Internal Security Officer", "Information Security Oversight"],
+      "answer": "International Organization for Standardization"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym ISP stand for?",
+      "options": ["Internet Service Provider", "Internal Security Policy", "Information System Plan", "Integrated Service Port"],
+      "answer": "Internet Service Provider"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym IT stand for?",
+      "options": ["Information Technology", "Internal Tracking", "Infrastructure Testing", "Internet Terminal"],
+      "answer": "Information Technology"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym ITIL stand for?",
+      "options": ["Information Technology Infrastructure Library", "Internal Technology Implementation Logic", "Internet Technology Interface Layer", "Integrated Team Information Link"],
+      "answer": "Information Technology Infrastructure Library"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym KPI stand for?",
+      "options": ["Key Performance Indicator", "Kernel Process Interface", "Key Protection Infrastructure", "Known Parameter Index"],
+      "answer": "Key Performance Indicator"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym LAN stand for?",
+      "options": ["Local Area Network", "Log Analysis Node", "Logical Access Node", "Layered Access Network"],
+      "answer": "Local Area Network"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym LDAPS stand for?",
+      "options": ["Lightweight Directory Access Protocol over SSL", "Logical Data Access Protection System", "Lightweight Data Authentication Protocol Suite", "Layered Directory Access and Protection Standard"],
+      "answer": "Lightweight Directory Access Protocol over SSL"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym LFI stand for?",
+      "options": ["Local File Inclusion", "Log File Injection", "Logical Firewall Interface", "Layered File Integrity"],
+      "answer": "Local File Inclusion"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym LOI stand for?",
+      "options": ["Letter of Intent", "Log of Intercepts", "List of Indicators", "Layer of Infrastructure"],
+      "answer": "Letter of Intent"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym LSASS stand for?",
+      "options": ["Local Security Authority Subsystem Service", "Layered Security Access and Storage System", "Local System Authentication and Security Suite", "Logical Security and Authorization Service"],
+      "answer": "Local Security Authority Subsystem Service"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym MAC stand for?",
+      "options": ["Media Access Control", "Message Authentication Center", "Mandatory Access Coding", "Metadata Analysis Core"],
+      "answer": "Media Access Control"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym MD5 stand for?",
+      "options": ["Message-digest Algorithm 5", "Metadata Description 5", "Management Data 5", "Module Defense 5"],
+      "answer": "Message-digest Algorithm 5"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym MFA stand for?",
+      "options": ["Multifactor Authentication", "Metadata Folder Access", "Management Frame Analysis", "Mainframe Authentication"],
+      "answer": "Multifactor Authentication"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym MOU stand for?",
+      "options": ["Memorandum of Understanding", "Management Operational Unit", "Memory Output Utility", "Mission Objective Update"],
+      "answer": "Memorandum of Understanding"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym MSF stand for?",
+      "options": ["Metasploit Framework", "Microsoft Security Folder", "Memory Storage Facility", "Management System Function"],
+      "answer": "Metasploit Framework"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym MSP stand for?",
+      "options": ["Managed Service Provider", "Main System Port", "Metadata Scanning Process", "Memory Stack Pointer"],
+      "answer": "Managed Service Provider"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym MSRPC stand for?",
+      "options": ["Microsoft Remote Procedure Call", "Management System Remote Power Control", "Main Storage Remote Process Center", "Metadata Secure Remote Processing"],
+      "answer": "Microsoft Remote Procedure Call"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym MSSP stand for?",
+      "options": ["Managed Security Service Provider", "Microsoft Secure System Port", "Metadata Storage and Security Process", "Management Standard for System Privacy"],
+      "answer": "Managed Security Service Provider"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym MTTD stand for?",
+      "options": ["Mean Time to Detect", "Maximum Time to Deploy", "Management Task for Threat Defense", "Minimum Time for Discovery"],
+      "answer": "Mean Time to Detect"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym NAC stand for?",
+      "options": ["Network Access Control", "Node Authentication Center", "Network Alert Command", "Native Access Coding"],
+      "answer": "Network Access Control"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym NDA stand for?",
+      "options": ["Non-disclosure Agreement", "Network Data Analysis", "Node Discovery Agent", "Native Defense Algorithm"],
+      "answer": "Non-disclosure Agreement"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym NGFW stand for?",
+      "options": ["Next-generation Firewall", "Network Gateway Filtering Wall", "Native Ground Firewall", "Node-to-Gateway Forwarding Wall"],
+      "answer": "Next-generation Firewall"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym NIDS stand for?",
+      "options": ["Network-based Intrusion Detection System", "Native Interface Detection Suite", "Network Internal Defense System", "Node-based Information Discovery Service"],
+      "answer": "Network-based Intrusion Detection System"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym NIPS stand for?",
+      "options": ["Network-based Intrusion Prevention System", "Node-based Internal Protection Suite", "Network Identity Protection System", "Native Interface Prevention Standard"],
+      "answer": "Network-based Intrusion Prevention System"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym NIST stand for?",
+      "options": ["National Institute of Standards and Technology", "Network Infrastructure Security Tool", "Native Information System Testing", "National Intelligence Security Taskforce"],
+      "answer": "National Institute of Standards and Technology"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym NOC stand for?",
+      "options": ["Network Operations Center", "Native Output Command", "Node Operation Control", "Network Oversight Center"],
+      "answer": "Network Operations Center"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym NTP stand for?",
+      "options": ["Network Time Protocol", "Native Terminal Port", "Node Tracking Process", "Network Transfer Port"],
+      "answer": "Network Time Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym OSINT stand for?",
+      "options": ["Open-source Intelligence", "Operating System Internal Network Technology", "Operational Security Intelligence", "Open System Integrated Network"],
+      "answer": "Open-source Intelligence"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym OSSTMM stand for?",
+      "options": ["Open Source Security Testing Methodology Manual", "Operating System Security Testing and Maintenance Module", "Open System Storage Task Management Method", "Operational Security System Threat Mitigation Manual"],
+      "answer": "Open Source Security Testing Methodology Manual"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym OSVDB stand for?",
+      "options": ["Open-source Vulnerability Database", "Operating System Virtual Data Backup", "Operational Security Validation Database", "Open System Vulnerability Detection Bureau"],
+      "answer": "Open-source Vulnerability Database"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym OT stand for?",
+      "options": ["Operational Technology", "Output Terminal", "Object Tracking", "Overlay Technology"],
+      "answer": "Operational Technology"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym OUI stand for?",
+      "options": ["Organizationally Unique Identifier", "Operating Unit Identifier", "Output Utility Interface", "Organization Universal Integration"],
+      "answer": "Organizationally Unique Identifier"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym OWASP stand for?",
+      "options": ["Open Web Application Security Project", "Online Web Authentication Security Port", "Open Website Access Security Policy", "Object Web Architecture and Security Process"],
+      "answer": "Open Web Application Security Project"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym PAM stand for?",
+      "options": ["Privileged Access Management", "Private Access Module", "Protocol Authentication Method", "Port Authorization Management"],
+      "answer": "Privileged Access Management"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym PCI DSS stand for?",
+      "options": ["Payment Card Industry Data Security Standard", "Private Cloud Infrastructure Data Storage Standard", "Port Control Interface Digital Security Suite", "Privacy Control Information Data Security System"],
+      "answer": "Payment Card Industry Data Security Standard"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym PHP stand for?",
+      "options": ["Hypertext Preprocessor", "Protocol Host Processor", "Private Host Provider", "Public Hyperlink Protocol"],
+      "answer": "Hypertext Preprocessor"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym PID stand for?",
+      "options": ["Process Identifier", "Private Identity Data", "Port Interface Descriptor", "Packet Interface Descriptor"],
+      "answer": "Process Identifier"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym PII stand for?",
+      "options": ["Personally Identifiable Information", "Private Internal Information", "Protected Identity Indicator", "Process Integrity Index"],
+      "answer": "Personally Identifiable Information"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym PKI stand for?",
+      "options": ["Public Key Infrastructure", "Private Key Interchange", "Protocol Key Integration", "Private Key Interface"],
+      "answer": "Public Key Infrastructure"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym PLC stand for?",
+      "options": ["Programmable Logic Controller", "Private Line Connection", "Protocol Link Command", "Port Link Circuit"],
+      "answer": "Programmable Logic Controller"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym POC stand for?",
+      "options": ["Proof of Concept", "Point of Contact", "Port of Control", "Protocol Operation Center"],
+      "answer": "Proof of Concept"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym RADIUS stand for?",
+      "options": ["Remote Authentication Dial-in User Service", "Remote Access Digital Integration User System", "Root Authentication Dial-in User Service", "Regional Access Dial-in Utility System"],
+      "answer": "Remote Authentication Dial-in User Service"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym RCE stand for?",
+      "options": ["Remote Code Execution", "Remote Command Entry", "Registry Control Entry", "Root Code Encryption"],
+      "answer": "Remote Code Execution"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym RDP stand for?",
+      "options": ["Remote Desktop Protocol", "Remote Data Port", "Recovery Data Plan", "Root Directory Path"],
+      "answer": "Remote Desktop Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym REST stand for?",
+      "options": ["Representational State Transfer", "Remote Entry Service Technology", "Root Entry System Tool", "Remote Encrypted Storage Technology"],
+      "answer": "Representational State Transfer"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym RFI stand for?",
+      "options": ["Remote File Inclusion", "Remote Firewall Interface", "Registry File Injection", "Remote Functional Interface"],
+      "answer": "Remote File Inclusion"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym RPC stand for?",
+      "options": ["Remote Procedure Call", "Root Protocol Command", "Remote Process Center", "Recovery Process Center"],
+      "answer": "Remote Procedure Call"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym RPO stand for?",
+      "options": ["Recovery Point Objective", "Recovery Process Operation", "Remote Port Objective", "Root Point Operation"],
+      "answer": "Recovery Point Objective"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym RSA stand for?",
+      "options": ["Rivest, Shamir, Adleman", "Remote Security Association", "Root Security Authentication", "Regional Security Authority"],
+      "answer": "Rivest, Shamir, Adleman"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym RTO stand for?",
+      "options": ["Recovery Time Objective", "Remote Transmission Option", "Root Transfer Operation", "Real Time Operation"],
+      "answer": "Recovery Time Objective"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym RXSS stand for?",
+      "options": ["Reflected Cross-site Scripting", "Remote Cross-site Scripting", "Root Cross-site Scripting", "Reflected Code Scripting Standard"],
+      "answer": "Reflected Cross-site Scripting"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SAML stand for?",
+      "options": ["Security Assertion Markup Language", "Secure Access Management Layer", "Secure Authentication Markup Language", "System Access Markup Language"],
+      "answer": "Security Assertion Markup Language"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SAMM stand for?",
+      "options": ["Software Assurance Maturity Model", "Secure Access and Management Module", "System Authentication Maturity Method", "Software Audit and Maintenance Model"],
+      "answer": "Software Assurance Maturity Model"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SASE stand for?",
+      "options": ["Secure Access Secure Edge", "Security and Storage Entry", "Secure Authentication and Storage Edge", "System Access Security Entry"],
+      "answer": "Secure Access Secure Edge"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SAST stand for?",
+      "options": ["Static Application Security Testing", "Secure Application Security Tool", "Static Authentication Service Tool", "Secure Access Security Testing"],
+      "answer": "Static Application Security Testing"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SCADA stand for?",
+      "options": ["Supervisory Control and Data Acquisition", "Secure Control and Data Acquisition", "System Control and Data Acquisition", "Supervisory Center and Data Analysis"],
+      "answer": "Supervisory Control and Data Acquisition"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SDLC stand for?",
+      "options": ["Software Development Life Cycle", "Secure Data Life Cycle", "System Development Life Cycle", "Secure Development Life Cycle"],
+      "answer": "Software Development Life Cycle"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SDN stand for?",
+      "options": ["Software-defined Network", "Secure Data Network", "System-defined Network", "Secure Digital Network"],
+      "answer": "Software-defined Network"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SFTP stand for?",
+      "options": ["Secure File Transfer Protocol", "Secure Functional Transfer Protocol", "System Functional Transfer Protocol", "Secure File Transmission Protocol"],
+      "answer": "Secure File Transfer Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SIEM stand for?",
+      "options": ["Security Information and Event Management", "System Information and Event Management", "Security Information and Entry Management", "Secure Information and Event Management"],
+      "answer": "Security Information and Event Management"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SLA stand for?",
+      "options": ["Service-level Agreement", "Secure Layer Agreement", "System-level Agreement", "Secure-level Agreement"],
+      "answer": "Service-level Agreement"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SLO stand for?",
+      "options": ["Service-level Objective", "Secure Layer Objective", "System-level Objective", "Secure-level Objective"],
+      "answer": "Service-level Objective"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SMB stand for?",
+      "options": ["Server Message Block", "Secure Message Block", "System Message Block", "Secure Metadata Block"],
+      "answer": "Server Message Block"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SMS stand for?",
+      "options": ["Short Message Service", "Secure Message Service", "System Message Service", "Short Metadata Service"],
+      "answer": "Short Message Service"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SMTP stand for?",
+      "options": ["Simple Mail Transfer Protocol", "Secure Mail Transfer Protocol", "System Mail Transfer Protocol", "Simple Metadata Transfer Protocol"],
+      "answer": "Simple Mail Transfer Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SNI stand for?",
+      "options": ["SMS Notification Indicator", "Server Name Indication", "Secure Network Interface", "System Node Identifier"],
+      "answer": "SMS Notification Indicator"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SNMP stand for?",
+      "options": ["Simple Network Management Protocol", "Secure Network Management Protocol", "System Network Management Protocol", "Simple Node Management Protocol"],
+      "answer": "Simple Network Management Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SOAP stand for?",
+      "options": ["Simple Object Access Protocol", "Secure Object Access Protocol", "System Object Access Protocol", "Simple Object Authentication Protocol"],
+      "answer": "Simple Object Access Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SOAR stand for?",
+      "options": ["Security Orchestration, Automation, and Response", "Secure Orchestration, Automation, and Response", "System Orchestration, Automation, and Response", "Security Orchestration, Authentication, and Response"],
+      "answer": "Security Orchestration, Automation, and Response"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SOC stand for?",
+      "options": ["Security Operations Center", "Secure Operations Center", "System Operations Center", "Security Optimization Center"],
+      "answer": "Security Operations Center"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SPF stand for?",
+      "options": ["Sender Policy Framework", "Secure Policy Framework", "System Policy Framework", "Sender Privacy Framework"],
+      "answer": "Sender Policy Framework"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SQL stand for?",
+      "options": ["Structured Query Language", "Secure Query Language", "System Query Language", "Secure Query List"],
+      "answer": "Structured Query Language"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SQLi stand for?",
+      "options": ["SQL injection", "SQL integration", "SQL identification", "SQL interface"],
+      "answer": "SQL injection"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SSH stand for?",
+      "options": ["Secure Shell", "System Shell", "Secure Socket Header", "System Socket Header"],
+      "answer": "Secure Shell"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SSID stand for?",
+      "options": ["Service Set Identifier", "Secure Set Identifier", "System Set Identifier", "Secure Socket Identifier"],
+      "answer": "Service Set Identifier"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SSL stand for?",
+      "options": ["Secure Sockets Layer", "System Sockets Layer", "Secure Socket Link", "System Socket Link"],
+      "answer": "Secure Sockets Layer"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SSO stand for?",
+      "options": ["Single Sign-on", "Secure Sign-on", "System Sign-on", "Secure Socket Option"],
+      "answer": "Single Sign-on"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SSRF stand for?",
+      "options": ["Server-side Request Forgery", "Secure Server Request Forgery", "System Server Request Forgery", "Secure Socket Request Forgery"],
+      "answer": "Server-side Request Forgery"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym STIX stand for?",
+      "options": ["Structured Threat Information Expression", "Secure Threat Information Expression", "System Threat Information Expression", "Secure Threat Information Exchange"],
+      "answer": "Structured Threat Information Expression"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym SWG stand for?",
+      "options": ["Secure Web Gateway", "System Web Gateway", "Secure Web Gateway Suite", "Secure Website Gateway"],
+      "answer": "Secure Web Gateway"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym TCP stand for?",
+      "options": ["Transmission Control Protocol", "Terminal Control Protocol", "Transfer Control Protocol", "Transmission Core Protocol"],
+      "answer": "Transmission Control Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym TFTP stand for?",
+      "options": ["Trivial File Transfer Protocol", "Terminal File Transfer Protocol", "Trivial File Transmission Protocol", "Trivial Functional Transfer Protocol"],
+      "answer": "Trivial File Transfer Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym TLS stand for?",
+      "options": ["Transport Layer Security", "Terminal Layer Security", "Transport Level Security", "Transfer Layer Security"],
+      "answer": "Transport Layer Security"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym TRACE stand for?",
+      "options": ["Trade Reporting and Compliance Engine", "Terminal Reporting and Compliance Engine", "Transfer Reporting and Compliance Engine", "Terminal Reporting and Command Engine"],
+      "answer": "Trade Reporting and Compliance Engine"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym TTP stand for?",
+      "options": ["Tactics, Techniques, and Procedures", "Threats, Tactics, and Procedures", "Tactics, Testing, and Procedures", "Tactics, Techniques, and Portfolios"],
+      "answer": "Tactics, Techniques, and Procedures"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym UDP stand for?",
+      "options": ["User Datagram Protocol", "Uniform Data Protocol", "Universal Data Protocol", "Uniform Datagram Protocol"],
+      "answer": "User Datagram Protocol"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym UEBA stand for?",
+      "options": ["User and Entity Behavior Analytics", "User and Entity Behavior Analysis", "Universal Entity Behavior Analytics", "Uniform Entity Behavior Analytics"],
+      "answer": "User and Entity Behavior Analytics"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym URI stand for?",
+      "options": ["Uniform Resource Identifier", "Universal Resource Identifier", "Uniform Resource Index", "Universal Resource Index"],
+      "answer": "Uniform Resource Identifier"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym URL stand for?",
+      "options": ["Uniform Resource Locator", "Universal Resource Locator", "Uniform Resource Link", "Universal Resource Link"],
+      "answer": "Uniform Resource Locator"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym USB stand for?",
+      "options": ["Universal Serial Bus", "Uniform Serial Bus", "Universal Serial Board", "Uniform Serial Board"],
+      "answer": "Universal Serial Bus"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym UTC stand for?",
+      "options": ["Universal Time Coordinated", "Uniform Time Coordinated", "Universal Time Coordinator", "Uniform Time Coordinator"],
+      "answer": "Universal Time Coordinated"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym VLAN stand for?",
+      "options": ["Virtual LAN", "Visual LAN", "Virtual Local Access Network", "Visual Local Access Network"],
+      "answer": "Virtual LAN"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym VM stand for?",
+      "options": ["Virtual Machine", "Visual Machine", "Virtual Management", "Visual Management"],
+      "answer": "Virtual Machine"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym VNC stand for?",
+      "options": ["Virtual Network Computing", "Visual Network Computing", "Virtual Network Command", "Visual Network Command"],
+      "answer": "Virtual Network Computing"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym VPN stand for?",
+      "options": ["Virtual Private Network", "Visual Private Network", "Virtual Public Network", "Visual Public Network"],
+      "answer": "Virtual Private Network"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym WAF stand for?",
+      "options": ["Web Application Firewall", "Web Application Folder", "Website Application Firewall", "Website Application Folder"],
+      "answer": "Web Application Firewall"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym WAN stand for?",
+      "options": ["Wide Area Network", "Website Area Network", "Wide Access Network", "Website Access Network"],
+      "answer": "Wide Area Network"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym XDR stand for?",
+      "options": ["Extended Detection Response", "External Detection Response", "Extended Data Response", "External Data Response"],
+      "answer": "Extended Detection Response"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym XML stand for?",
+      "options": ["Extensible Markup Language", "External Markup Language", "Extensible Metadata Language", "External Metadata Language"],
+      "answer": "Extensible Markup Language"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym XSS stand for?",
+      "options": ["Cross-site Scripting", "Core Scripting Standard", "Cross-site Standard", "Core Scripting System"],
+      "answer": "Cross-site Scripting"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym XXE stand for?",
+      "options": ["XML External Entity", "XML External Encryption", "XML Encrypted Entity", "XML Encryption Engine"],
+      "answer": "XML External Entity"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym ZAP stand for?",
+      "options": ["Zed Attack Proxy", "Zero Attack Protection", "Zone Access Protocol", "Zero Authentication Proxy"],
+      "answer": "Zed Attack Proxy"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym ZTA stand for?",
+      "options": ["Zero Trust Architecture", "Zone Threat Assessment", "Zero Threat Architecture", "Zone Trust Assessment"],
+      "answer": "Zero Trust Architecture"
+    },
+    {
+      "objective": "Acronyms",
+      "question": "What does the acronym ZTNA stand for?",
+      "options": ["Zero Trust Network Access", "Zone Threat Network Assessment", "Zero Threat Network Access", "Zone Trust Network Access"],
+      "answer": "Zero Trust Network Access"
     }
-]
+  ]
+}
