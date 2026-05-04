@@ -347,6 +347,13 @@ select option {
     font-size: 0.95rem;
 }
 
+code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
 .mode-toggle {
     display: flex;
     gap: 8px;
@@ -399,6 +406,38 @@ select option {
     padding: 2px 8px;
     border-radius: 10px;
 }
+
+.summary-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid var(--border-glass);
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.stat-value.correct { color: var(--success); }
+.stat-value.incorrect { color: var(--error); }
 
 @media (max-width: 900px) {
     #quiz-container.active-view {

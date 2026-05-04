@@ -2,7 +2,6 @@ const UI = {
     homeLink: document.getElementById('home-link'),
     examSelect: document.getElementById('exam-select'),
     apiKeyInput: document.getElementById('api-key'),
-    saveKeyBtn: document.getElementById('save-key-btn'),
     startBtn: document.getElementById('start-btn'),
     retestBtn: document.getElementById('retest-btn'),
     modeStandard: document.getElementById('mode-standard'),
@@ -26,15 +25,23 @@ const UI = {
     aiResponseText: document.getElementById('ai-response-text'),
     correctCount: document.getElementById('correct-count'),
     incorrectCount: document.getElementById('incorrect-count'),
-    historyList: document.getElementById('history-list')
+    historyList: document.getElementById('history-list'),
+    summarySection: document.getElementById('summary-section'),
+    summaryCorrect: document.getElementById('summary-correct'),
+    summaryIncorrect: document.getElementById('summary-incorrect'),
+    summaryAccuracy: document.getElementById('summary-accuracy'),
+    summaryHomeBtn: document.getElementById('summary-home-btn'),
+    summaryRetestBtn: document.getElementById('summary-retest-btn')
 };
 
 let state = {
-    questions: [],
+    questions:[],
     currentIndex: 0,
     apiKey: '',
     selectedAnswer: null,
     answers: {},
+    hints: {},
+    aiResponses: {},
     correct: 0,
     incorrect: 0,
     mode: 'standard',
@@ -58,6 +65,14 @@ function hashQuestion(q) {
     return Math.abs(hash).toString(36);
 }
 
+function parseMarkdown(text) {
+    return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/`(.*?)`/g, '<code>$1</code>')
+        .replace(/\n/g, '<br>');
+}
+
 function init() {
     const savedKey = localStorage.getItem(STORAGE_KEYS.apiKey);
     if (savedKey) {
@@ -72,15 +87,6 @@ function init() {
         UI.modeDefinitions.classList.add('active');
     }
 
-    UI.saveKeyBtn.addEventListener('click', () => {
-        const key = UI.apiKeyInput.value.trim();
-        if (key) {
-            localStorage.setItem(STORAGE_KEYS.apiKey, key);
-            state.apiKey = key;
-            alert('Key saved locally.');
-        }
-    });
-
     UI.homeLink.addEventListener('click', resetApp);
     UI.startBtn.addEventListener('click', () => startStudyMode(false));
     UI.retestBtn.addEventListener('click', () => startStudyMode(true));
@@ -88,12 +94,32 @@ function init() {
     UI.prevBtn.addEventListener('click', prevQuestion);
     UI.aiTutorBtn.addEventListener('click', handleAITutor);
     UI.hintBtn.addEventListener('click', handleHint);
+    UI.summaryHomeBtn.addEventListener('click', resetApp);
+    UI.summaryRetestBtn.addEventListener('click', () => {
+        resetApp();
+        startStudyMode(true);
+    });
 
     UI.modeStandard.addEventListener('click', () => setMode('standard'));
     UI.modeDefinitions.addEventListener('click', () => setMode('definitions'));
 
+    document.addEventListener('keydown', handleGlobalKeydown);
+
     updateRetestButton();
     restoreSession();
+}
+
+function handleGlobalKeydown(e) {
+    if (!UI.quizContainer.classList.contains('active-view')) return;
+    if (e.key === 'ArrowRight') nextQuestion();
+    if (e.key === 'ArrowLeft') prevQuestion();
+    if (['1', '2', '3', '4'].includes(e.key)) {
+        const idx = parseInt(e.key) - 1;
+        const q = state.questions[state.currentIndex];
+        if (state.selectedAnswer === null && q && idx < q.options.length) {
+            handleAnswer(idx);
+        }
+    }
 }
 
 function setMode(mode) {
@@ -121,9 +147,9 @@ function updateRetestButton() {
 
 function getIncorrectIds() {
     try {
-        return JSON.parse(localStorage.getItem(STORAGE_KEYS.incorrect)) || [];
+        return JSON.parse(localStorage.getItem(STORAGE_KEYS.incorrect)) ||[];
     } catch {
-        return [];
+        return[];
     }
 }
 
@@ -142,6 +168,8 @@ function saveSession() {
         correct: state.correct,
         incorrect: state.incorrect,
         questionIds: state.questions.map(q => q._id),
+        hints: state.hints,
+        aiResponses: state.aiResponses,
         timestamp: Date.now()
     };
     localStorage.setItem(STORAGE_KEYS.session, JSON.stringify(session));
@@ -166,6 +194,8 @@ function restoreSession() {
         state.answers = session.answers || {};
         state.correct = session.correct || 0;
         state.incorrect = session.incorrect || 0;
+        state.hints = session.hints || {};
+        state.aiResponses = session.aiResponses || {};
 
         UI.modeStandard.classList.toggle('active', state.mode === 'standard');
         UI.modeDefinitions.classList.toggle('active', state.mode === 'definitions');
@@ -182,6 +212,8 @@ function resetApp(e) {
     if (e) e.preventDefault();
     UI.quizContainer.classList.remove('active-view');
     UI.quizContainer.classList.add('hidden-view');
+    UI.summarySection.classList.remove('active-view');
+    UI.summarySection.classList.add('hidden-view');
     UI.configSection.classList.remove('hidden-view');
     UI.configSection.classList.add('active-view');
 
@@ -189,7 +221,9 @@ function resetApp(e) {
     state.answers = {};
     state.correct = 0;
     state.incorrect = 0;
-    state.questions = [];
+    state.questions =[];
+    state.hints = {};
+    state.aiResponses = {};
     state.isRetest = false;
     updateScoreboard();
     UI.historyList.innerHTML = '';
@@ -206,6 +240,12 @@ function shuffleArray(array) {
 }
 
 async function startStudyMode(isRetest = false, restoreIds = null) {
+    const key = UI.apiKeyInput.value.trim();
+    if (key) {
+        localStorage.setItem(STORAGE_KEYS.apiKey, key);
+        state.apiKey = key;
+    }
+
     const selectedExam = UI.examSelect.value;
     const filename = selectedExam === 'cysa' ? 'cysa/cysa.json' : `${selectedExam}.json`;
 
@@ -214,6 +254,11 @@ async function startStudyMode(isRetest = false, restoreIds = null) {
         if (!res.ok) throw new Error();
 
         const rawData = await res.json();
+        
+        if (!rawData || (!rawData.questions && (!rawData.standard || !rawData.definitions))) {
+            throw new Error("Invalid schema");
+        }
+
         let questions;
 
         if (selectedExam === 'cysa' && rawData.standard && rawData.definitions) {
@@ -246,7 +291,7 @@ async function startStudyMode(isRetest = false, restoreIds = null) {
 
         if (restoreIds) {
             const idMap = new Map(questions.map(q => [q._id, q]));
-            const restored = [];
+            const restored =[];
             for (const id of restoreIds) {
                 const q = idMap.get(id);
                 if (q) restored.push(q);
@@ -269,7 +314,7 @@ async function startStudyMode(isRetest = false, restoreIds = null) {
         saveSession();
         loadQuestion();
     } catch (err) {
-        alert(`Could not load ${filename}.`);
+        alert(`Could not load valid dataset for ${selectedExam}. Please verify the files.`);
     }
 }
 
@@ -311,11 +356,27 @@ function loadQuestion() {
     UI.hintContainer.classList.add('hidden-view');
     UI.hintContainer.classList.remove('active-view');
 
-    UI.aiResponseText.textContent = '';
-    UI.hintText.textContent = '';
+    UI.aiResponseText.innerHTML = '';
+    UI.hintText.innerHTML = '';
 
     UI.hintBtn.disabled = !state.apiKey;
     UI.hintBtn.textContent = 'Hint';
+
+    if (state.hints[state.currentIndex]) {
+        UI.hintContainer.classList.remove('hidden-view');
+        UI.hintContainer.classList.add('active-view');
+        UI.hintText.innerHTML = parseMarkdown(state.hints[state.currentIndex]);
+        UI.hintBtn.disabled = true;
+        UI.hintBtn.textContent = 'Hint Provided';
+    }
+
+    if (state.aiResponses[state.currentIndex]) {
+        UI.aiResponseContainer.classList.remove('hidden-view');
+        UI.aiResponseContainer.classList.add('active-view');
+        UI.aiResponseText.innerHTML = parseMarkdown(state.aiResponses[state.currentIndex]);
+        UI.aiTutorBtn.disabled = true;
+        UI.aiTutorBtn.textContent = 'AI Tutor Used';
+    }
 
     state.selectedAnswer = state.answers[state.currentIndex] !== undefined ? state.answers[state.currentIndex] : null;
 
@@ -412,16 +473,18 @@ async function handleAITutor() {
     UI.aiTutorBtn.textContent = "Thinking...";
     UI.aiResponseContainer.classList.remove('hidden-view');
     UI.aiResponseContainer.classList.add('active-view');
-    UI.aiResponseText.textContent = "Loading AI response...";
+    UI.aiResponseText.innerHTML = "Loading AI response...";
 
     const q = state.questions[state.currentIndex];
     const userChoiceText = q.options[state.selectedAnswer];
 
     const response = await fetchAITutorResponse(state.apiKey, q, userChoiceText);
+    
+    state.aiResponses[state.currentIndex] = response;
+    saveSession();
 
-    UI.aiResponseText.textContent = response;
-    UI.aiTutorBtn.disabled = false;
-    UI.aiTutorBtn.textContent = "Explain with AI Tutor";
+    UI.aiResponseText.innerHTML = parseMarkdown(response);
+    UI.aiTutorBtn.textContent = "AI Tutor Used";
 }
 
 async function handleHint() {
@@ -429,13 +492,40 @@ async function handleHint() {
     UI.hintBtn.textContent = "Loading...";
     UI.hintContainer.classList.remove('hidden-view');
     UI.hintContainer.classList.add('active-view');
-    UI.hintText.textContent = "Fetching hint...";
+    UI.hintText.innerHTML = "Fetching hint...";
 
     const q = state.questions[state.currentIndex];
     const response = await fetchAIHint(state.apiKey, q);
 
-    UI.hintText.textContent = response;
+    state.hints[state.currentIndex] = response;
+    saveSession();
+
+    UI.hintText.innerHTML = parseMarkdown(response);
     UI.hintBtn.textContent = "Hint Provided";
+}
+
+function showSummary() {
+    UI.quizContainer.classList.remove('active-view');
+    UI.quizContainer.classList.add('hidden-view');
+    UI.summarySection.classList.remove('hidden-view');
+    UI.summarySection.classList.add('active-view');
+
+    UI.summaryCorrect.textContent = state.correct;
+    UI.summaryIncorrect.textContent = state.incorrect;
+    
+    const total = state.correct + state.incorrect;
+    const accuracy = total > 0 ? Math.round((state.correct / total) * 100) : 0;
+    UI.summaryAccuracy.textContent = `${accuracy}%`;
+
+    const incorrectIds = getIncorrectIds();
+    const count = incorrectIds.filter(item => item.mode === state.mode).length;
+    if (count > 0) {
+        UI.summaryRetestBtn.classList.remove('hidden-view');
+    } else {
+        UI.summaryRetestBtn.classList.add('hidden-view');
+    }
+
+    localStorage.removeItem(STORAGE_KEYS.session);
 }
 
 function nextQuestion() {
@@ -444,7 +534,7 @@ function nextQuestion() {
         saveSession();
         loadQuestion();
     } else {
-        alert("End of quiz. Click the logo to return home.");
+        showSummary();
     }
 }
 

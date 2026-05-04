@@ -39,7 +39,6 @@
                 <label for="api-key">OpenRouter API Key (BYOK)</label>
                 <div class="input-row">
                     <input type="password" id="api-key" class="glass-input" placeholder="sk-or-v1-...">
-                    <button id="save-key-btn" class="secondary-btn">Save</button>
                 </div>
             </div>
 
@@ -87,6 +86,28 @@
                 <h3>Question History</h3>
                 <div id="history-list"></div>
             </aside>
+        </section>
+
+        <section id="summary-section" class="control-panel hidden-view" style="max-width: 600px; margin: 0 auto;">
+            <h1>Session Complete</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <span class="stat-label">Correct</span>
+                    <span id="summary-correct" class="stat-value correct">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Incorrect</span>
+                    <span id="summary-incorrect" class="stat-value incorrect">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Accuracy</span>
+                    <span id="summary-accuracy" class="stat-value">0%</span>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button id="summary-home-btn" class="secondary-btn" style="flex: 1;">Return Home</button>
+                <button id="summary-retest-btn" class="primary-btn retest hidden-view" style="flex: 1; margin-top: 0;">Retest Incorrect</button>
+            </div>
         </section>
     </main>
 
