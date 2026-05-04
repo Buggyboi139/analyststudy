@@ -92,7 +92,14 @@ async function startStudyMode() {
         if (!res.ok) throw new Error();
         
         const rawData = await res.json();
-        state.questions = shuffleArray(rawData.questions || rawData);
+        let questions = rawData.questions || rawData;
+        questions = questions.map(q => {
+            if (typeof q.answer === 'string') {
+                return { ...q, answer: q.options.indexOf(q.answer) };
+            }
+            return q;
+        });
+        state.questions = shuffleArray(questions);
         
         UI.totalQNum.textContent = state.questions.length;
         
