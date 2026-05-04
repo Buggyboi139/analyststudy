@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Study Arena</title>
+    <title>Analyst Study</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav>
         <div class="logo-container">
-            <span class="logo-text">Study Arena</span>
+            <a href="#" id="home-link" class="logo-text">Analyst Study</a>
         </div>
-        <button id="theme-toggle" class="nav-link neutral">Toggle Theme</button>
     </nav>
 
     <main class="container">
@@ -39,29 +38,46 @@
             <button id="start-btn" class="primary-btn">Start Study Mode</button>
         </section>
 
-        <section id="quiz-section" class="control-panel hidden-view">
-            <div class="category-selector">
-                <span class="category-title-label">Question <span id="current-q-num">1</span> of <span id="total-q-num"></span></span>
-            </div>
-            
-            <h2 id="question-text"></h2>
-            
-            <div id="options-container"></div>
-            
-            <div class="controls">
-                <button id="prev-btn" class="secondary-btn" disabled>Previous</button>
-                <button id="next-btn" class="secondary-btn">Next</button>
-            </div>
-
-            <div id="feedback-card" class="hidden-view">
-                <h3 id="feedback-verdict"></h3>
-                <p id="feedback-definition"></p>
-                <button id="ai-tutor-btn" class="secondary-btn">Explain with AI Tutor</button>
+        <section id="quiz-container" class="hidden-view">
+            <div id="quiz-section" class="control-panel">
+                <div class="category-selector">
+                    <span class="category-title-label">Question <span id="current-q-num">1</span> of <span id="total-q-num"></span></span>
+                </div>
                 
-                <div id="ai-response-container" class="hidden-view">
-                    <p id="ai-response-text"></p>
+                <h2 id="question-text"></h2>
+                
+                <div id="options-container"></div>
+                
+                <div class="controls">
+                    <button id="hint-btn" class="secondary-btn">Hint</button>
+                    <div style="flex: 1;"></div>
+                    <button id="prev-btn" class="secondary-btn" disabled>Previous</button>
+                    <button id="next-btn" class="secondary-btn">Next</button>
+                </div>
+
+                <div id="hint-container" class="hidden-view">
+                    <p id="hint-text"></p>
+                </div>
+
+                <div id="feedback-card" class="hidden-view">
+                    <h3 id="feedback-verdict"></h3>
+                    <p id="feedback-definition"></p>
+                    <button id="ai-tutor-btn" class="secondary-btn">Explain with AI Tutor</button>
+                    
+                    <div id="ai-response-container" class="hidden-view">
+                        <p id="ai-response-text"></p>
+                    </div>
                 </div>
             </div>
+
+            <aside id="history-sidebar">
+                <div class="scoreboard">
+                    <div class="score correct">Correct: <span id="correct-count">0</span></div>
+                    <div class="score incorrect">Incorrect: <span id="incorrect-count">0</span></div>
+                </div>
+                <h3>Question History</h3>
+                <div id="history-list"></div>
+            </aside>
         </section>
     </main>
 
