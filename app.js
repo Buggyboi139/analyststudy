@@ -36,8 +36,8 @@ function init() {
     }
 
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.setAttribute('data-theme', 'dark');
+    if (savedTheme === 'light') {
+        document.body.setAttribute('data-theme', 'light');
     }
 
     UI.saveKeyBtn.addEventListener('click', () => {
@@ -50,13 +50,13 @@ function init() {
     });
 
     UI.themeToggle.addEventListener('click', () => {
-        const isDark = document.body.getAttribute('data-theme') === 'dark';
-        if (isDark) {
+        const isLight = document.body.getAttribute('data-theme') === 'light';
+        if (isLight) {
             document.body.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'light');
-        } else {
-            document.body.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
+        } else {
+            document.body.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
         }
     });
 
@@ -77,8 +77,12 @@ async function startStudyMode() {
         }
         state.questions = await res.json();
         UI.totalQNum.textContent = state.questions.length;
-        UI.configSection.classList.add('hidden');
-        UI.quizSection.classList.remove('hidden');
+        
+        UI.configSection.classList.remove('active-view');
+        UI.configSection.classList.add('hidden-view');
+        UI.quizSection.classList.remove('hidden-view');
+        UI.quizSection.classList.add('active-view');
+        
         loadQuestion();
     } catch (err) {
         alert(`Could not load ${filename}. Ensure the file exists in the directory and you are running a local server.`);
@@ -86,9 +90,12 @@ async function startStudyMode() {
 }
 
 function loadQuestion() {
-    UI.feedbackCard.classList.add('hidden');
-    UI.aiResponseContainer.classList.add('hidden');
+    UI.feedbackCard.classList.add('hidden-view');
+    UI.feedbackCard.classList.remove('active-view');
+    UI.aiResponseContainer.classList.add('hidden-view');
+    UI.aiResponseContainer.classList.remove('active-view');
     UI.aiResponseText.textContent = '';
+    
     state.selectedAnswer = state.answers[state.currentIndex] !== undefined ? state.answers[state.currentIndex] : null;
 
     const q = state.questions[state.currentIndex];
@@ -130,24 +137,30 @@ function handleAnswer(selectedIndex) {
 }
 
 function showFeedback(q, selectedIndex) {
-    UI.feedbackCard.classList.remove('hidden');
+    UI.feedbackCard.classList.remove('hidden-view');
+    UI.feedbackCard.classList.add('active-view');
+    
     const isCorrect = selectedIndex === q.answer;
     
     UI.feedbackVerdict.textContent = isCorrect ? "Correct!" : "Incorrect.";
-    UI.feedbackVerdict.style.color = isCorrect ? "var(--correct-color)" : "var(--incorrect-color)";
+    UI.feedbackVerdict.style.color = isCorrect ? "#10b981" : "#fb7185";
+    UI.feedbackCard.style.borderLeftColor = isCorrect ? "#10b981" : "#fb7185";
     UI.feedbackDefinition.textContent = q.definition;
 
     if (!isCorrect && state.apiKey) {
-        UI.aiTutorBtn.classList.remove('hidden');
+        UI.aiTutorBtn.classList.remove('hidden-view');
+        UI.aiTutorBtn.classList.add('active-view');
     } else {
-        UI.aiTutorBtn.classList.add('hidden');
+        UI.aiTutorBtn.classList.add('hidden-view');
+        UI.aiTutorBtn.classList.remove('active-view');
     }
 }
 
 async function handleAITutor() {
     UI.aiTutorBtn.disabled = true;
     UI.aiTutorBtn.textContent = "Thinking...";
-    UI.aiResponseContainer.classList.remove('hidden');
+    UI.aiResponseContainer.classList.remove('hidden-view');
+    UI.aiResponseContainer.classList.add('active-view');
     UI.aiResponseText.textContent = "Loading AI response...";
 
     const q = state.questions[state.currentIndex];
