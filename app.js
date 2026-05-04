@@ -374,6 +374,9 @@ function loadQuestion() {
     UI.hintBtn.disabled = !state.apiKey;
     UI.hintBtn.textContent = 'Hint';
 
+    UI.aiTutorBtn.disabled = false;
+    UI.aiTutorBtn.textContent = 'Explain with AI Tutor';
+
     if (state.hints[state.currentIndex]) {
         UI.hintContainer.classList.remove('hidden-view');
         UI.hintContainer.classList.add('active-view');
