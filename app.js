@@ -75,6 +75,14 @@ function resetApp(e) {
     UI.historyList.innerHTML = '';
 }
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 async function startStudyMode() {
     const selectedExam = UI.examSelect.value;
     const filename = `${selectedExam}.json`;
@@ -82,7 +90,10 @@ async function startStudyMode() {
     try {
         const res = await fetch(filename);
         if (!res.ok) throw new Error();
-        state.questions = await res.json();
+        
+        const rawData = await res.json();
+        state.questions = shuffleArray(rawData);
+        
         UI.totalQNum.textContent = state.questions.length;
         
         UI.configSection.classList.remove('active-view');
