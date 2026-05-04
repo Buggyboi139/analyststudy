@@ -92,7 +92,7 @@ async function startStudyMode() {
         if (!res.ok) throw new Error();
         
         const rawData = await res.json();
-        state.questions = shuffleArray(rawData);
+        state.questions = shuffleArray(rawData.questions || rawData);
         
         UI.totalQNum.textContent = state.questions.length;
         
