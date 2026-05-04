@@ -14,7 +14,7 @@
     </nav>
 
     <main class="container">
-        <section id="config-section" class="control-panel active-view">
+        <section id="config-section" class="control-panel active-view config-container">
             <h1>Configuration</h1>
             <p class="subtitle">Set up your study environment</p>
             
@@ -58,7 +58,7 @@
                 
                 <div class="controls">
                     <button id="hint-btn" class="secondary-btn">Hint</button>
-                    <div style="flex: 1;"></div>
+                    <div class="spacer"></div>
                     <button id="prev-btn" class="secondary-btn" disabled>Previous</button>
                     <button id="next-btn" class="secondary-btn">Next</button>
                 </div>
@@ -88,7 +88,7 @@
             </aside>
         </section>
 
-        <section id="summary-section" class="control-panel hidden-view" style="max-width: 600px; margin: 0 auto;">
+        <section id="summary-section" class="control-panel hidden-view summary-container">
             <h1>Session Complete</h1>
             <div class="summary-stats">
                 <div class="stat-box">
@@ -104,9 +104,9 @@
                     <span id="summary-accuracy" class="stat-value">0%</span>
                 </div>
             </div>
-            <div style="display: flex; gap: 10px; margin-top: 20px;">
-                <button id="summary-home-btn" class="secondary-btn" style="flex: 1;">Return Home</button>
-                <button id="summary-retest-btn" class="primary-btn retest hidden-view" style="flex: 1; margin-top: 0;">Retest Incorrect</button>
+            <div class="summary-actions">
+                <button id="summary-home-btn" class="secondary-btn">Return Home</button>
+                <button id="summary-retest-btn" class="primary-btn retest hidden-view">Retest Incorrect</button>
             </div>
         </section>
     </main>

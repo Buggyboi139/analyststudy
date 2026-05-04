@@ -19,6 +19,8 @@
     padding: 0; 
     -webkit-tap-highlight-color: transparent; 
     font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 body {
@@ -78,7 +80,7 @@ nav {
     width: 100%;
 }
 
-#config-section {
+.config-container, .summary-container {
     max-width: 600px;
     margin: 0 auto;
 }
@@ -287,10 +289,15 @@ select option {
     border-color: var(--error); 
 }
 
+.spacer {
+    flex: 1;
+}
+
 .controls {
     display: flex;
     gap: 10px;
     margin-top: 20px;
+    align-items: center;
 }
 
 #hint-container {
@@ -352,6 +359,8 @@ code {
     padding: 2px 4px;
     border-radius: 4px;
     font-family: monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 
 .mode-toggle {
@@ -389,6 +398,10 @@ code {
     border: 2px solid var(--error);
     color: var(--error);
     margin-top: 12px;
+}
+
+.summary-actions .primary-btn.retest {
+    margin-top: 0;
 }
 
 .primary-btn.retest:not(.hidden-view) {
@@ -439,6 +452,16 @@ code {
 .stat-value.correct { color: var(--success); }
 .stat-value.incorrect { color: var(--error); }
 
+.summary-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.summary-actions button {
+    flex: 1;
+}
+
 @media (max-width: 900px) {
     #quiz-container.active-view {
         flex-direction: column;
@@ -452,15 +475,60 @@ code {
 }
 
 @media (max-width: 480px) {
+    .control-panel {
+        padding: 20px 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #question-text {
+        font-size: 1.1rem;
+    }
+
     .input-row {
         flex-direction: column;
     }
-    .controls {
-        flex-wrap: wrap;
+    
+    .spacer {
+        display: none;
     }
+
+    .controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    #prev-btn {
+        order: 1;
+        width: 100%;
+    }
+    
+    #next-btn {
+        order: 2;
+        width: 100%;
+    }
+
     #hint-btn {
+        grid-column: 1 / -1;
         width: 100%;
         order: 3;
-        margin-top: 10px;
+        margin-top: 5px;
+    }
+
+    .summary-actions {
+        flex-direction: column;
+    }
+    
+    .summary-actions button {
+        width: 100%;
+        margin: 0;
+    }
+
+    .summary-stats {
+        flex-direction: column;
+        gap: 20px;
     }
 }
